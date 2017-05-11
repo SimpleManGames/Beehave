@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 9c9afbca9efc9d845b64d0a484060a2f
+timeCreated: 1492127662
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hex_tall_1
+    21300002: hex_tall_2
+    21300004: hex_tall_3
+    21300006: hex_tall_4
+    21300008: hex_tall_outline
+    21300010: hex_wide_1
+    21300012: hex_wide_2
+    21300014: hex_wide_3
+    21300016: hex_wide_outline
+    21300018: diamond_outline
+    21300020: square_1
+    21300022: square_2
+    21300024: square_3
+    21300026: square_4
+    21300028: square_outline
+    21300030: circle_1
+    21300032: circle_2
+    21300034: circle_3
+    21300036: circle_outline
+    21300038: panel_tail_1
+    21300040: hex_perfect_1
+    21300042: hex_perfect_2
+    21300044: hex_perfect_3
+    21300046: hex_perfect_outline
+    21300048: panel_tail_2
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hex_tall_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 97, y: 150, z: 94, w: 148}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_tall_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 94, y: 150, z: 93, w: 148}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_tall_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 98, y: 150, z: 94, w: 148}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_tall_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 110, y: 151, z: 115, w: 149}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_tall_outline
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 92, y: 150, z: 96, w: 148}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_wide_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 151, y: 94, z: 147, w: 88}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_wide_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 150, y: 96, z: 148, w: 91}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_wide_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 149, y: 96, z: 149, w: 91}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_wide_outline
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 148, y: 96, z: 150, w: 91}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: diamond_outline
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 152, y: 151, z: 146, w: 147}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: square_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 29, y: 31, z: 24, w: 20}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: square_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 33, y: 36, z: 29, w: 25}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: square_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 31, y: 34, z: 30, w: 25}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: square_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 69, y: 68, z: 70, w: 55}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: square_outline
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 34, z: 33, w: 26}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: circle_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 150, y: 152, z: 148, w: 146}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: circle_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 148, y: 152, z: 150, w: 146}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: circle_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 149, y: 152, z: 150, w: 146}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: circle_outline
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 149, y: 160, z: 149, w: 139}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: panel_tail_1
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_perfect_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 83, y: 149, z: 82, w: 150}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_perfect_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 90, y: 149, z: 87, w: 150}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_perfect_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 89, y: 149, z: 87, w: 150}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_perfect_outline
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 89, y: 149, z: 86, w: 150}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: panel_tail_2
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

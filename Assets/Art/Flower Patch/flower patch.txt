@@ -1,0 +1,1 @@
+the normal map and material for the stem are reused and shitty atm, will update later obviously. The albedo for the petals is meant to be applied as a sprite for transparency reasons.

@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: e94f0590a8c91534e8759bc2780aba43
+timeCreated: 1493316822
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Slave_C_Abdomen0
+    100004: Slave_C_Abdomen1
+    100006: Slave_C_Head
+    100008: Slave_C_Neck
+    100010: Slave_C_Pelvis
+    100012: Slave_C_Root
+    100014: Slave_C_Thorax
+    100016: Slave_L_Antenna0
+    100018: Slave_L_Antenna1
+    100020: Slave_L_Antenna2
+    100022: Slave_L_Elbow
+    100024: Slave_L_Foreleg0
+    100026: Slave_L_Foreleg1
+    100028: Slave_L_Foreleg2
+    100030: Slave_L_FrontWingStart
+    100032: Slave_L_Hindleg0
+    100034: Slave_L_Hindleg1
+    100036: Slave_L_Hindleg2
+    100038: Slave_L_RearWingStart
+    100040: Slave_L_Shoulder
+    100042: Slave_L_Wrist
+    100044: Slave_R_Antenna0
+    100046: Slave_R_Antenna1
+    100048: Slave_R_Antenna2
+    100050: Slave_R_Elbow
+    100052: Slave_R_Foreleg0
+    100054: Slave_R_Foreleg1
+    100056: Slave_R_Foreleg2
+    100058: Slave_R_FrontWingStart
+    100060: Slave_R_Hindleg0
+    100062: Slave_R_Hindleg1
+    100064: Slave_R_Hindleg2
+    100066: Slave_R_RearWingStart
+    100068: Slave_R_Shoulder
+    100070: Slave_R_Wrist
+    400000: //RootNode
+    400002: Slave_C_Abdomen0
+    400004: Slave_C_Abdomen1
+    400006: Slave_C_Head
+    400008: Slave_C_Neck
+    400010: Slave_C_Pelvis
+    400012: Slave_C_Root
+    400014: Slave_C_Thorax
+    400016: Slave_L_Antenna0
+    400018: Slave_L_Antenna1
+    400020: Slave_L_Antenna2
+    400022: Slave_L_Elbow
+    400024: Slave_L_Foreleg0
+    400026: Slave_L_Foreleg1
+    400028: Slave_L_Foreleg2
+    400030: Slave_L_FrontWingStart
+    400032: Slave_L_Hindleg0
+    400034: Slave_L_Hindleg1
+    400036: Slave_L_Hindleg2
+    400038: Slave_L_RearWingStart
+    400040: Slave_L_Shoulder
+    400042: Slave_L_Wrist
+    400044: Slave_R_Antenna0
+    400046: Slave_R_Antenna1
+    400048: Slave_R_Antenna2
+    400050: Slave_R_Elbow
+    400052: Slave_R_Foreleg0
+    400054: Slave_R_Foreleg1
+    400056: Slave_R_Foreleg2
+    400058: Slave_R_FrontWingStart
+    400060: Slave_R_Hindleg0
+    400062: Slave_R_Hindleg1
+    400064: Slave_R_Hindleg2
+    400066: Slave_R_RearWingStart
+    400068: Slave_R_Shoulder
+    400070: Slave_R_Wrist
+    7400000: Idle
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 211
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Slave_C_Root
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Abdomen0
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Abdomen0/Slave_C_Abdomen1
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck/Slave_C_Head
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck/Slave_C_Head/Slave_L_Antenna0
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck/Slave_C_Head/Slave_L_Antenna0/Slave_L_Antenna1
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck/Slave_C_Head/Slave_L_Antenna0/Slave_L_Antenna1/Slave_L_Antenna2
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck/Slave_C_Head/Slave_R_Antenna0
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck/Slave_C_Head/Slave_R_Antenna0/Slave_R_Antenna1
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_C_Neck/Slave_C_Head/Slave_R_Antenna0/Slave_R_Antenna1/Slave_R_Antenna2
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_L_FrontWingStart
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_L_RearWingStart
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_L_Shoulder
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_L_Shoulder/Slave_L_Elbow
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_L_Shoulder/Slave_L_Elbow/Slave_L_Wrist
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_R_FrontWingStart
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_R_RearWingStart
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_R_Shoulder
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_R_Shoulder/Slave_R_Elbow
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_C_Thorax/Slave_R_Shoulder/Slave_R_Elbow/Slave_R_Wrist
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_L_Foreleg0
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_L_Foreleg0/Slave_L_Foreleg1
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_L_Foreleg0/Slave_L_Foreleg1/Slave_L_Foreleg2
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_L_Hindleg0
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_L_Hindleg0/Slave_L_Hindleg1
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_L_Hindleg0/Slave_L_Hindleg1/Slave_L_Hindleg2
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_R_Foreleg0
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_R_Foreleg0/Slave_R_Foreleg1
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_R_Foreleg0/Slave_R_Foreleg1/Slave_R_Foreleg2
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_R_Hindleg0
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_R_Hindleg0/Slave_R_Hindleg1
+        weight: 1
+      - path: Slave_C_Root/Slave_C_Pelvis/Slave_R_Hindleg0/Slave_R_Hindleg1/Slave_R_Hindleg2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
