@@ -8,10 +8,12 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
     /// <summary>
     /// Private Member Variable that holds a 1D array of TileData
     /// </summary>
+    [System.Obsolete]
     private TileData[] m_tileMap;
     /// <summary>
     /// Property for the an array of TileData
     /// </summary>
+    [System.Obsolete]
     public TileData[] TileMap
     {
         get
@@ -36,6 +38,7 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
     /// <summary>
     /// Holds the information about a single title
     /// </summary>
+    [System.Obsolete]
     public struct TileData
     {
         /// <summary>
@@ -62,19 +65,23 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
         }
     }
 
+    [System.Obsolete]
     private int m_MapWidth;
     /// <summary>
     /// Property containing information about the width of the map
     /// </summary>
+    [System.Obsolete]
     public int MapWidth
     {
         get { return m_MapWidth; }
         set { m_MapWidth = value; }
     }
+    [System.Obsolete]
     private int m_MapHeight;
     /// <summary>
     /// Property containing information about the height of the map
     /// </summary>
+    [System.Obsolete]
     public int MapHeight
     {
         get { return m_MapHeight; }
@@ -87,107 +94,71 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
     /// <param name="x">X position in the array when the hex was generated</param>
     /// <param name="y">Y position in the array when the hex was generated</param>
     /// <seealso cref="HexGridGenerator.cs"/>
+    [System.Obsolete]
     public void AddToTileMap(int x, int y)
     {
         TileMap[y * MapWidth + x] = new TileData(y * MapWidth + x);
     }
 
+    [System.Obsolete]
     public void AddToTileMap(int index)
     {
         TileMap[index] = new TileData(index);
     }
 
-    #region Obsolete
+    //public enum LayerType { None, Terrain, Honey, Pollen, Sleep, Pollen_Storge, Honey_Storage, Nectar_Storage, Temple, Throne, Incubator }
+    public enum DisperseSetting { None, Linear, MinValue }
 
-
-    [Obsolete]
-    public HeatMapInteraction heatMapInteraction;
-
-    /// <summary>
-    /// Gets the 6 tiles surrounding the index'd tile
-    /// </summary>
-    /// <param name="index">The index of the tile you want to know about</param>
-    /// <returns>
-    /// If found a matching index; returns the TileData for it.
-    /// Else; returns null
-    /// </returns>
-
-    [Obsolete]
-    public TileData GetTileData(int index)
+    public struct LayerSettings
     {
-        for (int y = 0; y < MapHeight; y++)
-            for (int x = 0; x < MapWidth; x++)
-                if (TileMap[y * m_MapWidth + x].index == index)
-                    return TileMap[y * m_MapWidth + x];
-
-        return new TileData(int.MinValue);
+        public LayerType type;
+        public DisperseSetting settings;
     }
 
-    /// <summary> 
-    /// Returns the neighbors of the tile index passed in
-    /// </summary>
-    /// <param name="currentIndex">The tile's index that you want to check around</param>
-    /// <returns>An array of 6 TileData's</returns>
-    [Obsolete]
-    public TileData[] AdjacenyList(int currentIndex)
-    {
-        return new TileData[6] {
-            GetTileData(currentIndex - 1),
-            GetTileData(currentIndex + 1),
-            GetTileData(currentIndex + MapWidth), // This is what's giving the index 16 when on tile 6 for adjacency
-            GetTileData(currentIndex + MapWidth - 1),
-            GetTileData(currentIndex - MapWidth),
-            GetTileData(currentIndex - MapWidth + 1) };
-    }
+    private SortedDictionary<LayerType, float[]> field = new SortedDictionary<LayerType, float[]>();
+    public SortedDictionary<LayerType, float[]> Field { get { return field; } }
 
-    [Obsolete]
-    public struct LayerData
-    {
-        /// <summary>
-        /// 1D Array holding the float values for the heatmap
-        /// </summary>
-        public float[,] data;
+    public Dictionary<LayerMask, LayerSettings> initFieldSetupDictionary = new Dictionary<LayerMask, LayerSettings>();
 
-        public LayerData(float[,] data)
-        {
-            this.data = data;
-        }
-    }
-    [Obsolete]
-    private Dictionary<LayerType, LayerData> m_HeatMap;
-    [Obsolete]
-    /// <summary>
-    /// To set new heatmap values, pass in a new Dictionary with the changed values and sloths
-    /// </summary>
-    public Dictionary<LayerType, LayerData> HeatMap
+    public override void Awake()
     {
-        get
-        {
-            if (m_HeatMap == null)
+        base.Awake();
+        initFieldSetupDictionary.Add(
+            LayerMask.NameToLayer("Terrain"),
+            new LayerSettings
             {
-                m_HeatMap = new Dictionary<LayerType, LayerData>(Enum.GetValues(typeof(LayerType)).Length);
-                GenerateBaseHeatMap();
-            }
+                type = LayerType.Terrain,
+                settings = DisperseSetting.MinValue
+            });
 
-            return m_HeatMap;
-        }
-        set
-        {
-            for (int i = 0; i < value.Count; i++)
+        initFieldSetupDictionary.Add(
+            LayerMask.NameToLayer("Pollen"),
+            new LayerSettings
             {
-                var currentLayerEnum = value.Keys.ElementAt(i);
-                if (m_HeatMap.ContainsKey(currentLayerEnum))
-                    m_HeatMap[currentLayerEnum] = new LayerData(value[currentLayerEnum].data);
-            }
-        }
+                type = LayerType.Pollen,
+                settings = DisperseSetting.Linear
+            });
+
+        foreach (var type in Enum.GetValues(typeof(LayerType)))
+            field.Add((LayerType)type, new float[Grid.Instance.MapWidth * Grid.Instance.MapHeight]);
     }
-    [Obsolete]
-    private void GenerateBaseHeatMap()
+
+    public void CalculateLinear(Hex hex, LayerSettings settings)
     {
-        for (int i = 0; i < HeatMap.Count; i++)
+        float maxDistance = float.MinValue;
+
+        foreach (var otherHexObj in Grid.Instance.Hexes)
         {
-            m_HeatMap[(LayerType)i] = new LayerData(new float[MapWidth, MapHeight]);
+            if (Hex.Distance(otherHexObj.hex, hex) > maxDistance)
+                maxDistance = Hex.Distance(otherHexObj.hex, hex);
+        }
+
+        foreach (var otherHexObj in Grid.Instance.Hexes)
+        {
+            float linearDistance = 1 - (Hex.Distance(otherHexObj.hex, hex) / maxDistance);
+
+            if (HeatMapInfo.Instance.Field[settings.type][otherHexObj.Index] < linearDistance)
+                HeatMapInfo.Instance.Field[settings.type][otherHexObj.Index] = linearDistance;
         }
     }
-    #endregion
 }

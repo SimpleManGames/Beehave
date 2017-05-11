@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class Grid : Singleton<Grid>
 {
+    public List<GameObject> hexPrefabs = new List<GameObject>();
+
     public GameObject hexObjectPrefab = null;
     public GameObject thronePrefab = null;
 
@@ -205,9 +207,7 @@ public class Grid : Singleton<Grid>
         return new Vector3(x, transform.position.y, z);
     }
 
-    /// <summary>
-    /// Checks agaisnt all hex's colliders for Terrain and sets the potential of the hex
-    /// </summary>
+    [System.Obsolete]
     private void SetStartupPotentials()
     {
         int indexInList = 0;
@@ -228,6 +228,7 @@ public class Grid : Singleton<Grid>
         }
     }
 
+    [System.Obsolete]
     void SetUpPollen()
     {
         List<GameObject> flowers = GameObject.FindGameObjectsWithTag("Pollen Spot").ToList();
@@ -414,8 +415,6 @@ public class Grid : Singleton<Grid>
     public void Start()
     {
         CreateGrid();
-        SetStartupPotentials();
-        SetUpPollen();
         SetStartTiles();
     }
 

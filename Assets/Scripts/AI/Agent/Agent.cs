@@ -91,7 +91,7 @@ public class Agent
                 // Accumulate the layers weight in a total weight for tile
                 if (currentTask != Tasks.Null)
                 {
-                    currentTileWeight += HeatMapInfo.Instance.TileMap[tile.Index].potential[Task.GetTaskLayer(currentTask)];
+                    currentTileWeight += HeatMapInfo.Instance.Field[Task.GetTaskLayer(currentTask)][tile.Index];
                     if(currentTileWeight >= 1f)
                     {
                         Debug.Log("Reached" + currentTask + "Goal");
@@ -104,7 +104,7 @@ public class Agent
                     }
                 }
                 else currentTileWeight += Random.Range(0.0f, 1.0f);
-                currentTileWeight += HeatMapInfo.Instance.TileMap[tile.Index].potential[LayerType.Terrain];
+                currentTileWeight += HeatMapInfo.Instance.Field[LayerType.Terrain][tile.Index];
 
                 //If the tile is better then set best tile to the one currently being worked on
                 if (currentTileWeight >= bestTileWeight && Untraversed(tile.Index))
