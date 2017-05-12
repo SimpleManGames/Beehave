@@ -198,27 +198,6 @@ public class Grid : Singleton<Grid>
     #endregion
 
     [System.Obsolete]
-    private void SetStartupPotentials()
-    {
-        int indexInList = 0;
-        foreach (var hex in Hexes)
-        {
-            GameObject model;
-            if (model = hex.transform.FindChild("hex_tile").FindChild("Model").gameObject)
-            {
-                if (model.GetComponent<Collider>() == null)
-                    model.AddComponent<Collider>();
-
-                var collide = Physics.OverlapSphere(model.transform.position, .5f, terrainLayerMask);
-
-                if (collide.Length > 0)
-                    HeatMapInfo.Instance.TileMap[indexInList].potential[LayerType.Terrain] = float.MinValue;
-            }
-            indexInList++;
-        }
-    }
-
-    [System.Obsolete]
     void SetUpPollen()
     {
         List<GameObject> flowers = GameObject.FindGameObjectsWithTag("Pollen Spot").ToList();
@@ -230,9 +209,9 @@ public class Grid : Singleton<Grid>
             if (Physics.Raycast(new Ray(startPoint, Vector3.down), out hit, 5f, hexLayerMask))
             {
                 var collide = hit.transform.gameObject;
-                HeatMapInfo.Instance.TileMap[collide.GetComponentInParent<HexObject>().Index].potential[LayerType.Pollen] = 1;
+                HeatMapInfo.Instance.Field[LayerType.Pollen][collide.GetComponentInParent<HexObject>().Index] = 1;
 
-                var editList = Instance.Hexes.Where(h => HeatMapInfo.Instance.TileMap[h.Index].potential[LayerType.Terrain] == 0 && HeatMapInfo.Instance.TileMap[h.Index].potential[LayerType.Pollen] != 1);
+                var editList = Instance.Hexes.Where(h => HeatMapInfo.Instance.Field[LayerType.Terrain][h.Index] == 0 && HeatMapInfo.Instance.Field[LayerType.Pollen][h.Index] != 1);
                 editList.ToList().ForEach(edit =>
                 {
                     float maxDistance = float.MinValue;
@@ -246,8 +225,8 @@ public class Grid : Singleton<Grid>
 
                     try
                     {
-                        if (HeatMapInfo.Instance.TileMap[edit.Index].potential[LayerType.Pollen] < distLinear)
-                            HeatMapInfo.Instance.TileMap[edit.Index].potential[LayerType.Pollen] = distLinear;
+                        if (HeatMapInfo.Instance.Field[LayerType.Pollen][edit.Index] < distLinear)
+                            HeatMapInfo.Instance.Field[LayerType.Pollen][edit.Index] = distLinear;
                     }
                     catch
                     {
@@ -271,9 +250,9 @@ public class Grid : Singleton<Grid>
     [System.Obsolete]
     public static IEnumerator CoEditHeatMapData(int index, LayerType layer)
     {
-        var editedList = Instance.Hexes.Where(h => HeatMapInfo.Instance.TileMap[h.Index].potential[LayerType.Terrain] == 0 && HeatMapInfo.Instance.TileMap[h.Index].potential[layer] != 1);
+        var editedList = Instance.Hexes.Where(h => HeatMapInfo.Instance.Field[LayerType.Terrain][h.Index] == 0 && HeatMapInfo.Instance.Field[layer][h.Index] != 1);
 
-        HeatMapInfo.Instance.TileMap[index].potential[layer] = 1;
+        HeatMapInfo.Instance.Field[layer][index] = 1;
 
         foreach (var hex in editedList)
         {
@@ -287,8 +266,8 @@ public class Grid : Singleton<Grid>
             float distLinear = 1 - (Hex.Distance(Instance.hexes[index].hex, hex.hex) / maxDistance);
             try
             {
-                if (HeatMapInfo.Instance.TileMap[hex.Index].potential[layer] < distLinear)
-                    HeatMapInfo.Instance.TileMap[hex.Index].potential[layer] = distLinear;
+                if (HeatMapInfo.Instance.Field[layer][hex.Index] < distLinear)
+                    HeatMapInfo.Instance.Field[layer][hex.Index] = distLinear;
             }
             catch
             {
