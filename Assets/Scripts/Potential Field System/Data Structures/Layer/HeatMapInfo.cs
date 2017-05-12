@@ -16,12 +16,12 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
     private SortedDictionary<LayerType, float[]> field = new SortedDictionary<LayerType, float[]>();
     public SortedDictionary<LayerType, float[]> Field { get { return field; } }
 
-    public Dictionary<LayerMask, LayerSettings> initFieldSetupDictionary = new Dictionary<LayerMask, LayerSettings>();
+    public Dictionary<LayerMask, LayerSettings> fieldSetupDictionary = new Dictionary<LayerMask, LayerSettings>();
 
     public override void Awake()
     {
         base.Awake();
-        initFieldSetupDictionary.Add(
+        fieldSetupDictionary.Add(
             LayerMask.NameToLayer("Terrain"),
             new LayerSettings
             {
@@ -29,7 +29,7 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
                 settings = DisperseSetting.MinValue
             });
 
-        initFieldSetupDictionary.Add(
+        fieldSetupDictionary.Add(
             LayerMask.NameToLayer("Flower"),
             new LayerSettings
             {
@@ -55,8 +55,8 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
         {
             float linearDistance = 1 - (Hex.Distance(otherHexObj.hex, hex) / maxDistance);
 
-            if (HeatMapInfo.Instance.Field[settings.type][otherHexObj.Index] < linearDistance)
-                HeatMapInfo.Instance.Field[settings.type][otherHexObj.Index] = linearDistance;
+            if (Instance.Field[settings.type][otherHexObj.Index] < linearDistance)
+                Instance.Field[settings.type][otherHexObj.Index] = linearDistance;
         }
     }
 
@@ -67,8 +67,6 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
         Instance.Field[settings.type][index] = 1;
 
         foreach (var hex in list)
-        {
             CalculateLinear(Grid.FindHexObject(index).hex, settings);
-        }
     }
 }

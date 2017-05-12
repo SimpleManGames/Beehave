@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: e432e7221aed7dd45931773619e689b5
+timeCreated: 1494626406
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: back
+    100002: //RootNode
+    100004: C_Drone_Chris
+    100006: Slave_C_Abdomen0
+    100008: Slave_C_Abdomen1
+    100010: Slave_C_Head
+    100012: Slave_C_Neck
+    100014: Slave_C_Pelvis
+    100016: Slave_C_Root
+    100018: Slave_C_Thorax
+    100020: Slave_L_Antenna0
+    100022: Slave_L_Antenna1
+    100024: Slave_L_Antenna2
+    100026: Slave_L_Elbow
+    100028: Slave_L_Foreleg0
+    100030: Slave_L_Foreleg1
+    100032: Slave_L_Foreleg2
+    100034: Slave_L_FrontWingStart
+    100036: Slave_L_Hindleg0
+    100038: Slave_L_Hindleg1
+    100040: Slave_L_Hindleg2
+    100042: Slave_L_RearWingStart
+    100044: Slave_L_Shoulder
+    100046: Slave_L_Wrist
+    100048: Slave_R_Antenna0
+    100050: Slave_R_Antenna1
+    100052: Slave_R_Antenna2
+    100054: Slave_R_Elbow
+    100056: Slave_R_Foreleg0
+    100058: Slave_R_Foreleg1
+    100060: Slave_R_Foreleg2
+    100062: Slave_R_FrontWingStart
+    100064: Slave_R_Hindleg0
+    100066: Slave_R_Hindleg1
+    100068: Slave_R_Hindleg2
+    100070: Slave_R_RearWingStart
+    100072: Slave_R_Shoulder
+    100074: Slave_R_Wrist
+    400000: back
+    400002: //RootNode
+    400004: C_Drone_Chris
+    400006: Slave_C_Abdomen0
+    400008: Slave_C_Abdomen1
+    400010: Slave_C_Head
+    400012: Slave_C_Neck
+    400014: Slave_C_Pelvis
+    400016: Slave_C_Root
+    400018: Slave_C_Thorax
+    400020: Slave_L_Antenna0
+    400022: Slave_L_Antenna1
+    400024: Slave_L_Antenna2
+    400026: Slave_L_Elbow
+    400028: Slave_L_Foreleg0
+    400030: Slave_L_Foreleg1
+    400032: Slave_L_Foreleg2
+    400034: Slave_L_FrontWingStart
+    400036: Slave_L_Hindleg0
+    400038: Slave_L_Hindleg1
+    400040: Slave_L_Hindleg2
+    400042: Slave_L_RearWingStart
+    400044: Slave_L_Shoulder
+    400046: Slave_L_Wrist
+    400048: Slave_R_Antenna0
+    400050: Slave_R_Antenna1
+    400052: Slave_R_Antenna2
+    400054: Slave_R_Elbow
+    400056: Slave_R_Foreleg0
+    400058: Slave_R_Foreleg1
+    400060: Slave_R_Foreleg2
+    400062: Slave_R_FrontWingStart
+    400064: Slave_R_Hindleg0
+    400066: Slave_R_Hindleg1
+    400068: Slave_R_Hindleg2
+    400070: Slave_R_RearWingStart
+    400072: Slave_R_Shoulder
+    400074: Slave_R_Wrist
+    4300000: C_Drone_Chris
+    9500000: //RootNode
+    13700000: C_Drone_Chris
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

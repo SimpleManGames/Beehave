@@ -25,6 +25,7 @@ public class Simulation : Singleton<Simulation>
     }
 
     private float accumilatedTime = 0f;
+    [SerializeField]
     private float frameLength = 0.75f;
     private int currentFrame = 0;
 
@@ -42,7 +43,7 @@ public class Simulation : Singleton<Simulation>
     private void GameFrameTurn()
     {
         // TODO: See if this runs better as an event or foreach loop
-        GlobalResources.Instance.TotalHoney += 1;
+        GlobalResources.Instance.TotalHoney += 10;
         agents.ForEach(a => a.Evaluate());
         currentFrame++;
     }

@@ -23,9 +23,9 @@ public class HexObject : MonoBehaviour
 
         foreach (var obj in objectsToCheck)
         {
-            if (HeatMapInfo.Instance.initFieldSetupDictionary.ContainsKey(obj.gameObject.layer))
+            if (HeatMapInfo.Instance.fieldSetupDictionary.ContainsKey(obj.gameObject.layer))
             {
-                var settings = HeatMapInfo.Instance.initFieldSetupDictionary[obj.gameObject.layer];
+                var settings = HeatMapInfo.Instance.fieldSetupDictionary[obj.gameObject.layer];
 
                 switch (settings.settings)
                 {
