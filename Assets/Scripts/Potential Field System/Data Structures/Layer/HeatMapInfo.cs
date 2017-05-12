@@ -132,7 +132,7 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
             });
 
         initFieldSetupDictionary.Add(
-            LayerMask.NameToLayer("Pollen"),
+            LayerMask.NameToLayer("Flower"),
             new LayerSettings
             {
                 type = LayerType.Pollen,
