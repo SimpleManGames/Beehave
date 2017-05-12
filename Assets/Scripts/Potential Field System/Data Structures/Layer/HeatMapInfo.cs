@@ -59,4 +59,16 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
                 HeatMapInfo.Instance.Field[settings.type][otherHexObj.Index] = linearDistance;
         }
     }
+
+    public void AddPointToLayer(int index, LayerSettings settings)
+    {
+        var list = Grid.Instance.Hexes.Where(h => Instance.Field[LayerType.Terrain][h.Index] == 0);
+
+        Instance.Field[settings.type][index] = 1;
+
+        foreach (var hex in list)
+        {
+            CalculateLinear(Grid.FindHexObject(index).hex, settings);
+        }
+    }
 }
