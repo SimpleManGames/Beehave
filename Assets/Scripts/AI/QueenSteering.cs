@@ -38,10 +38,10 @@ public class QueenSteering : MonoBehaviour
                 HexObject hexObject = Grid.FindHexObject(n.cubeCoords);
                 try
                 {
-                    if (HeatMapInfo.Instance.TileMap[hexObject.Index].potential[LayerType.Terrain] != float.MinValue)
+                    if (HeatMapInfo.Instance.Field[LayerType.Terrain][hexObject.Index] != float.MinValue)
                         availableMovements.Add(hexObject);
                 }
-                catch (NullReferenceException e) { }
+                catch { }
             });
 
             currentTime += Time.deltaTime;

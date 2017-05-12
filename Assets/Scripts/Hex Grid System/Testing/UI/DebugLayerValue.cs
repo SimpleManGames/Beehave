@@ -17,7 +17,7 @@ public class DebugLayerValue : MonoBehaviour
         if (DebugLayerValueManager.Instance != null && text != null)
         {
             text.enabled = DebugLayerValueManager.Instance.displayWorldCanvas;
-            text.text = HeatMapInfo.Instance.TileMap[GetComponentInParent<HexObject>().Index].potential[DebugLayerValueManager.Instance.layerType].ToString();
+            text.text = HeatMapInfo.Instance.Field[DebugLayerValueManager.Instance.layerType][GetComponentInParent<HexObject>().Index].ToString();
         }
     }
 }

@@ -75,7 +75,6 @@ public class Grid : Singleton<Grid>
 
             return hexHeight;
         }
-
         set
         {
             hexHeight = value;
@@ -120,42 +119,13 @@ public class Grid : Singleton<Grid>
 
     #region Privates
 
+    #region Generation
+
     private Vector3 CalculateInitPosition()
     {
         return new Vector3(-MapWidth / 2 + HexWidth, 0, MapHeight / 2 - HexHeight / 2);
     }
 
-    /// <summary>
-    /// The top function for creating the Hex Map
-    /// </summary>
-    private void CreateGrid()
-    {
-        Vector2 gridSize = CalculateGridSize();
-
-        HeatMapInfo.Instance.MapHeight = (int)gridSize.y;
-
-        int index = 0;
-
-        for (int y = 0; y < gridSize.y; y++)
-        {
-            float sizeX = gridSize.x;
-            if (y % 2 != 0 && (gridSize.x + 0.5f) * HexWidth > MapWidth)
-                sizeX--;
-
-            HeatMapInfo.Instance.MapWidth = (int)sizeX;
-
-            for (int x = 0; x < sizeX; x++)
-            {
-                AddTileToHexGrid(new OffsetCoord(x, y), index);
-                index++;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Calculates the size of the map in hexes based on 'hexObjectPrefab'
-    /// </summary>
-    /// <returns>Vector2 holding info about the size of the map in hexes</returns>
     private Vector2 CalculateGridSize()
     {
         float sideLength = HexHeight / 2;
@@ -168,44 +138,64 @@ public class Grid : Singleton<Grid>
         return new Vector2((int)(MapWidth / HexWidth), gridHeightInHexes);
     }
 
-    /// <summary>
-    /// Creates and modifies its cube coordinates; Then adds a new tile to the Hex Map
-    /// </summary>
-    /// <param name="coord">The [X, Y] position of where to place the new tile</param>
-    private void AddTileToHexGrid(OffsetCoord coord, int index)
+    private Vector3 CalculateWorldPosition(float x, float y)
     {
-        GameObject newHex = (GameObject)Instantiate(hexObjectPrefab);
-        Vector2 gridPos = new Vector2(coord.Column, coord.Row);
-
-        newHex.name = "Hex " + coord.Column + " " + coord.Row;
-        newHex.transform.position = transform.position + CalculateWorldCoord(gridPos);
-        newHex.transform.parent = transform;
-
-        HexObject newHexObject = newHex.GetComponent<HexObject>();
-        newHexObject.Index = index /*coord.Row * Grid.Instance.MapWidth + coord.Column*/;
-        newHexObject.hex = new Hex(CubeCoord.OddRowToCube(coord));
-        Hexes.Add(newHexObject);
-
-        HeatMapInfo.Instance.AddToTileMap(index);
+        return CalculateWorldPosition(new Vector2(x, y));
     }
 
-    /// <summary>
-    /// Calculates the locate a tile will be placed at in world space
-    /// </summary>
-    /// <param name="pos">Its [X, Y] position in a Offset coordinate system</param>
-    /// <returns></returns>
-    private Vector3 CalculateWorldCoord(Vector2 pos)
+    private Vector3 CalculateWorldPosition(OffsetCoord coord)
+    {
+        return CalculateWorldPosition(coord.Column, coord.Row);
+    }
+
+    private Vector3 CalculateWorldPosition(Vector2 position)
     {
         Vector3 initPos = CalculateInitPosition();
         float offset = 0;
-        if (pos.y % 2 != 0)
+        if (position.y % 2 != 0)
             offset = HexWidth / 2;
 
-        float x = initPos.x + offset + pos.x * HexWidth;
-        float z = initPos.z - pos.y * hexHeight * 0.75f;
+        float x = initPos.x + offset + position.x * HexWidth;
+        float z = initPos.z - position.y * HexHeight * 0.75f;
 
-        return new Vector3(x, transform.position.y, z);
+        return new Vector3(x, 0, z);
     }
+
+    private void PlaceTile(OffsetCoord coord)
+    {
+        // Create the object
+        //GameObject hex = (GameObject)Instantiate(hexPrefab[Random.Range(0, hexPrefab.Count)]);
+        GameObject hex = Instantiate(hexObjectPrefab);
+        hex.name = string.Format("Hex {0} {1}", coord.Column, coord.Row);
+
+        // Place the object
+        hex.transform.position = transform.position + CalculateWorldPosition(new Vector2(coord.Column, coord.Row));
+        hex.transform.parent = transform;
+
+        // Set up the object
+        HexObject hexObject = hex.GetComponent<HexObject>();
+        hexObject.hex = new Hex(CubeCoord.OddRowToCube(coord));
+        hexObject.Index = Instance.Hexes.Count;
+        Instance.Hexes.Add(hexObject);
+    }
+
+    private void CreateGrid()
+    {
+        Vector2 gridSize = CalculateGridSize();
+
+        for (int y = 0; y < gridSize.y; y++)
+        {
+            float sizeX = gridSize.x;
+
+            if (y % 2 != 0 && (gridSize.x + 0.5f) * HexWidth > MapWidth)
+                sizeX--;
+
+            for (int x = 0; x < sizeX; x++)
+                PlaceTile(new OffsetCoord(x, y));
+        }
+    }
+
+    #endregion
 
     [System.Obsolete]
     private void SetStartupPotentials()
@@ -272,11 +262,13 @@ public class Grid : Singleton<Grid>
 
     }
 
+    [System.Obsolete]
     public static void EditHeatMapData(int index, LayerType layer)
     {
         Instance.StartCoroutine(CoEditHeatMapData(index, layer));
     }
 
+    [System.Obsolete]
     public static IEnumerator CoEditHeatMapData(int index, LayerType layer)
     {
         var editedList = Instance.Hexes.Where(h => HeatMapInfo.Instance.TileMap[h.Index].potential[LayerType.Terrain] == 0 && HeatMapInfo.Instance.TileMap[h.Index].potential[layer] != 1);
@@ -321,7 +313,6 @@ public class Grid : Singleton<Grid>
         GameObject throne = Instantiate(thronePrefab);
         throne.transform.position = new Vector3(FindHexObject(Hexes[index].hex.cubeCoords).transform.position.x, hit.point.y, FindHexObject(Hexes[index].hex.cubeCoords).transform.position.z);
 
-        EditHeatMapData(index, LayerType.Throne);
         Hex.Neighbours(Hexes[index].hex).ToList().ForEach(h => FindHexObject(h.cubeCoords).IsCreep = true);
     }
 

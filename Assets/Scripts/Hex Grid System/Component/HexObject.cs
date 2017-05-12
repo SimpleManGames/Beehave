@@ -22,31 +22,31 @@ public class HexObject : MonoBehaviour
         Collider[] objectsToCheck = Physics.OverlapSphere(transform.position, GetComponentInChildren<MeshCollider>().bounds.size.x / 2);
 
         foreach (var obj in objectsToCheck)
+        {
             if (HeatMapInfo.Instance.initFieldSetupDictionary.ContainsKey(obj.gameObject.layer))
             {
                 var settings = HeatMapInfo.Instance.initFieldSetupDictionary[obj.gameObject.layer];
-         
+
                 switch (settings.settings)
                 {
-                    case HeatMapInfo.DisperseSetting.None:
-                        throw new NotImplementedException();
-                    case HeatMapInfo.DisperseSetting.Linear:
-                        HeatMapInfo.Instance.CalculateLinear(hex, settings);
-                        break;
-                    case HeatMapInfo.DisperseSetting.MinValue:
-                        HeatMapInfo.Instance.Field[settings.type][Index] = float.MinValue;
-                        break;
-                    default:
-                        return;
+                    case HeatMapInfo.DisperseSetting.None: throw new NotImplementedException();
+                    case HeatMapInfo.DisperseSetting.Linear: HeatMapInfo.Instance.CalculateLinear(hex, settings); break;
+                    case HeatMapInfo.DisperseSetting.MinValue: HeatMapInfo.Instance.Field[settings.type][Index] = float.MinValue; break;
+                    default: return;
                 }
             }
+        }
     }
 
-    public void Start()
+    private void Awake()
     {
-        meshFilter = transform.GetChild(0).GetComponentInChildren<MeshFilter>();
-        meshRenderer = transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
+        meshFilter = transform.FindChild("hex_tile").GetComponentInChildren<MeshFilter>();
+        meshRenderer = transform.FindChild("hex_tile").GetComponentInChildren<MeshRenderer>();
+    }
 
+    private void Start()
+    {
+        SetupInitFieldData();
     }
 
     private void OnDrawGizmos()
