@@ -18,7 +18,8 @@ public class HexObject : MonoBehaviour
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
 
-    private void SetupInitFieldData() {
+    private void SetupInitFieldData()
+    {
         Collider[] objectsToCheck = Physics.OverlapSphere(transform.position, GetComponentInChildren<MeshCollider>().bounds.size.x / 2);
 
         foreach (var obj in objectsToCheck)
@@ -52,7 +53,7 @@ public class HexObject : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        if(!meshRenderer.enabled)
-            Gizmos.DrawWireMesh(meshFilter.mesh, transform.position, Quaternion.Euler(0,90,0));
+        if (!meshRenderer.enabled)
+            Gizmos.DrawWireMesh(meshFilter.mesh, transform.position, Quaternion.Euler(0, 90, 0));
     }
 }

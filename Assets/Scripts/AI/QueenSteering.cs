@@ -15,6 +15,7 @@ public class QueenSteering : MonoBehaviour
     private bool reachedTarget;
 
     private float currentTime;
+    [SerializeField]
     private float timeToMove = 0.5f;
 
     private void Start()
