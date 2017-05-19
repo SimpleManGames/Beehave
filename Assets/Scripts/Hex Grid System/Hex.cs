@@ -104,7 +104,7 @@ public class Hex
     /// <returns>The length</returns>
     public static int Length(Hex hex)
     {
-        return (int)(Mathf.Abs((float)hex.cubeCoords.Q) + Mathf.Abs((float)hex.cubeCoords.R) + Mathf.Abs((float)hex.cubeCoords.S)) / 2;
+        return (int)(Mathf.Abs((float)hex.cubeCoords.Q + (float)hex.cubeCoords.R + (float)hex.cubeCoords.S)) / 2;
     }
 
     /// <summary>
@@ -161,7 +161,7 @@ public class Hex
 
     public override string ToString()
     {
-        return string.Format("[" + cubeCoords.Q + "," + cubeCoords.R + "," + cubeCoords.S + "]");
+        return cubeCoords.ToString();
     }
 
     #endregion

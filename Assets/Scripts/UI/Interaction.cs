@@ -87,7 +87,8 @@ public class Interaction : Singleton<Interaction>
             //}
             else
             {
-                if (Grid.FindHexObject(hexIndex).IsCreep && !Grid.FindHexObject(hexIndex).HasBuilding)
+                var hex = Grid.FindHexObject(hexIndex);
+                if (hex.IsCreep && !hex.HasBuilding)
                 {
                     BuildingObject objToPlaceInfo = objToPlace.GetComponent<BuildingObject>();
 
@@ -100,7 +101,12 @@ public class Interaction : Singleton<Interaction>
                     objToPlace.GetComponent<Renderer>().materials = mats;
                     //objToPlace.GetComponent<Renderer>().materials = defaultMat
                     objToPlaceInfo.SetBuildingTile(hexIndex);
-                    Grid.EditHeatMapData(hexIndex, objToPlaceInfo.layerType);
+
+                    HeatMapInfo.Instance.AddPointToLayer(hex, new HeatMapInfo.LayerSettings
+                    {
+                        type = objToPlaceInfo.layerType,
+                        settings = HeatMapInfo.DisperseSetting.Linear
+                    });
                     objToPlace = null;
                     defaultMat.Clear();
                 }

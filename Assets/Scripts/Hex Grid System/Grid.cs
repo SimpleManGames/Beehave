@@ -300,6 +300,16 @@ public class Grid : Singleton<Grid>
     #region Statics
 
     /// <summary>
+    /// Gets a HexObject based off of it's CubeCoords in the hex that's passed in
+    /// </summary>
+    /// <param name="hex"></param>
+    /// <returns></returns>
+    public static HexObject FindHexObject(Hex hex)
+    {
+        return FindHexObject(hex.cubeCoords);
+    }
+
+    /// <summary>
     /// Gets a HexObject based off it's index
     /// </summary>
     /// <param name="index">Index of the wanted HexObject</para>

@@ -7,11 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-  - enabled: 0
-    path: Assets/Scenes/NewMenu.unity
-  - enabled: 0
-    path: Assets/Scenes/HexTileTesting.unity
-  - enabled: 0
-    path: Assets/Scenes/NewHexTileTesting.unity
   - enabled: 1
     path: Assets/Scenes/Final/Game.unity
+  - enabled: 1
+    path: Assets/Scenes/Final/LoadingScreen.unity

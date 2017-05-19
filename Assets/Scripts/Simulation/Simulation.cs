@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Simulation : Singleton<Simulation>
 {
+    /// <summary>
+    /// List of all the agents
+    /// </summary>
     private List<Agent> agents = new List<Agent>();
 
+    /// <summary>
+    /// Gets the agent with the ID that's passed in
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public Agent GetAgent(int id)
     {
         return agents.Where(a => a.ID == id).FirstOrDefault();
@@ -24,9 +32,12 @@ public class Simulation : Singleton<Simulation>
         return newAgent.ID;
     }
 
+    // Time from when we last changed frame
     private float accumilatedTime = 0f;
     [SerializeField]
+    [Tooltip("How long inbetween frames should be.")]
     private float frameLength = 0.75f;
+    // Stores the current frame we are on
     private int currentFrame = 0;
 
     public void Update()
@@ -40,10 +51,13 @@ public class Simulation : Singleton<Simulation>
         }
     }
 
+    /// <summary>
+    /// Simulation loop
+    /// </summary>
     private void GameFrameTurn()
     {
         // TODO: See if this runs better as an event or foreach loop
-        GlobalResources.Instance.TotalHoney += 10;
+        //GlobalResources.Instance.TotalHoney += 10;
         agents.ForEach(a => a.Evaluate());
         currentFrame++;
     }
