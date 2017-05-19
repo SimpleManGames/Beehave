@@ -43,6 +43,30 @@ public class HexDebugManager : Singleton<HexDebugManager>
         FadeTimerCounter();
     }
 
+    public void UpdateValues()
+    {
+        switch (debugType)
+        {
+            default:
+            case DebugType.None:
+                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(false));
+                break;
+            case DebugType.Index:
+                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
+                hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().Index.ToString());
+                break;
+            case DebugType.CubeCoord:
+                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
+                hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().hex.cubeCoords.ToString());
+                break;
+            case DebugType.PotentialField:
+                layerDebugText.text += ": " + layerType.ToString();
+                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
+                hexSystemText.ForEach(h => h.text = HeatMapInfo.Instance.Field[layerType][h.transform.GetComponentInParent<HexObject>().Index].ToString());
+                break;
+        }
+    }
+
     private void F1Menu()
     {
         if (Input.GetKeyDown(KeyCode.F1))

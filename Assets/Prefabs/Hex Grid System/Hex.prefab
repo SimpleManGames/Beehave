@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 224104218566636706}
   - component: {fileID: 223213823087991620}
   - component: {fileID: 114930895071097154}
-  - component: {fileID: 114029624075683104}
   - component: {fileID: 114791299631629872}
   m_Layer: 0
   m_Name: Canvas
@@ -191,22 +190,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: fc4b7d53037a07649b27887be969d0a5, type: 3}
---- !u!114 &114029624075683104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165217097471254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &114791299631629872
 MonoBehaviour:
   m_ObjectHideFlags: 1
