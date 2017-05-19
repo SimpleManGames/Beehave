@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentSteering : MonoBehaviour {
+public class AgentSteering : MonoBehaviour
+{
+    Vector3 targetPosition;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void SetTargetTile(int target)
+    {
+        targetPosition = Grid.FindHexObject(target).transform.position;
+    }
 }
