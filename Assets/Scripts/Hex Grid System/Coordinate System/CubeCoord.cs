@@ -211,7 +211,7 @@ public struct CubeCoord
 
     public override string ToString()
     {
-        return string.Format("[ " + Q + " ," + R + " ," + S + " ]");
+        return string.Format("[<color=green>{0}</color>, <color=purple>{1}</color>, <color=blue>{2}</color>]", Q, R, S);
     }
 
     public override int GetHashCode()
