@@ -7,6 +7,7 @@ public class AgentBrain : MonoBehaviour
     List<AgentTasks> availableTasks = new List<AgentTasks>();
     Tasks currentTask;
     bool taskReached = false;
+    bool taskComplete = false;
 
     public int targetTileIndex { get; private set; }
 
@@ -17,25 +18,32 @@ public class AgentBrain : MonoBehaviour
     public void Evaluate()
     {
         // Calls all Evaluation Tasks for Agent if needed (i.e. will only do FindTargetTile if it's reached it's targetTileIndex)
+        if (taskReached)
+        {
+            DoTask();
+        }
+        else FindTargetTile();
     }
 
-    //Detemin next best Task for the Agent to take on based on Task Utility
+    //Detemine next best Task for the Agent to take on based on Task Utility
     private void EvalTasks()
     {
-        if(taskReached)
+        if(!taskComplete)
         {
-            Tasks bestTask = Tasks.Null;
-            float bestScore = 0;
+            return;
+        }
 
-            foreach (var Task in availableTasks)
+        Tasks bestTask = Tasks.Null;
+        float bestScore = 0;
+
+        foreach (var Task in availableTasks)
+        {
+            Task.SetWeight(EvalUtility(Task.task));
+
+            // Innocent method of just setting the Task with highest weight to be our current Task
+            if (Task.weight > bestScore)
             {
-                Task.SetWeight(EvalUtility(Task.task));
-
-                // Innocent method of just setting the Task with highest weight to be our current Task
-                if (Task.weight > bestScore)
-                {
-                    bestTask = Task.task;
-                }
+                bestTask = Task.task;
             }
 
             currentTask = bestTask;
@@ -54,6 +62,35 @@ public class AgentBrain : MonoBehaviour
     {
         attachedController = this.GetComponent<AgentSteering>();
         globalIndex = 0; // Should be set by "AddAgent(this)" method in Simulation when completed
+    }
+
+    private void DoTask()
+    {
+        switch(currentTask)
+        {
+            default:
+                break;
+        }
+    }
+
+    private void GatherPollen()
+    {
+
+    }
+
+    private void StorePollen()
+    {
+
+    }
+
+    private void Eat()
+    {
+
+    }
+
+    private void Sleep()
+    {
+
     }
 
     // Utility Scoring Method, uses switch to allow passing of all Tasks into one function and sorted there.
