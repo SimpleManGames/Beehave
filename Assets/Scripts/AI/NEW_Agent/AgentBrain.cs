@@ -17,25 +17,32 @@ public class AgentBrain : MonoBehaviour
     public void Evaluate()
     {
         // Calls all Evaluation Tasks for Agent if needed (i.e. will only do FindTargetTile if it's reached it's targetTileIndex)
+        if (taskReached)
+        {
+            DoTask();
+        }
+        else FindTargetTile();
     }
 
-    //Detemin next best Task for the Agent to take on based on Task Utility
+    //Detemine next best Task for the Agent to take on based on Task Utility
     private void EvalTasks()
     {
-        if(taskReached)
+        if(!taskReached)
         {
-            Tasks bestTask = Tasks.Null;
-            float bestScore = 0;
+            return;
+        }
 
-            foreach (var Task in availableTasks)
+        Tasks bestTask = Tasks.Null;
+        float bestScore = 0;
+
+        foreach (var Task in availableTasks)
+        {
+            Task.SetWeight(EvalUtility(Task.task));
+
+            // Innocent method of just setting the Task with highest weight to be our current Task
+            if (Task.weight > bestScore)
             {
-                Task.SetWeight(EvalUtility(Task.task));
-
-                // Innocent method of just setting the Task with highest weight to be our current Task
-                if (Task.weight > bestScore)
-                {
-                    bestTask = Task.task;
-                }
+                bestTask = Task.task;
             }
 
             currentTask = bestTask;
@@ -54,6 +61,15 @@ public class AgentBrain : MonoBehaviour
     {
         attachedController = this.GetComponent<AgentSteering>();
         globalIndex = 0; // Should be set by "AddAgent(this)" method in Simulation when completed
+    }
+
+    private void DoTask()
+    {
+        switch(currentTask)
+        {
+            default:
+                break;
+        }
     }
 
     // Utility Scoring Method, uses switch to allow passing of all Tasks into one function and sorted there.
