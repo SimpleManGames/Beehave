@@ -12,8 +12,15 @@ public class HexObject : MonoBehaviour
     [Tooltip("The Hex this object is tracking")]
     public Hex hex;
 
+    /// <summary>
+    /// Returns if the Hex should be treated as creep
+    /// This is determined by if the Mesh Renderer is on or not
+    /// </summary>
     public bool IsCreep { get { return meshRenderer.enabled; } set { meshRenderer.enabled = value; } }
 
+    /// <summary>
+    /// Tells if there is a building on this Hex
+    /// </summary>
     public bool HasBuilding { get; set; }
 
     // Used for drawing gizmos

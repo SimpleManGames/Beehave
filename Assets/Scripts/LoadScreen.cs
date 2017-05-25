@@ -4,19 +4,28 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Loads a scene on start
+/// </summary>
 public class LoadScreen : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("The name of the scene to be loaded")]
     private string sceneName;
     [SerializeField]
+    [Tooltip("The Text object that will be displayed to the user")]
     private Text loadingText;
     [SerializeField]
+    [Tooltip("The color of the 'loadingText'")]
     private Color loadingColor;
 
     [SerializeField]
     [Tooltip("The duration between no alpha and max alpha")]
     private float duration = 1.0f;
 
+    /// <summary>
+    /// Returns LoadingColor with an alpha of 0
+    /// </summary>
     private Color LoadingColorNoAlpha
     {
         get { return new Color(loadingColor.r, loadingColor.g, loadingColor.b, 0); }
@@ -35,6 +44,10 @@ public class LoadScreen : MonoBehaviour
         loadingText.color = Color.Lerp(loadingColor, LoadingColorNoAlpha, lerp);
     }
 
+    /// <summary>
+    /// Loads the scene defined by sceneName as an Async Operation
+    /// </summary>
+    /// <returns></returns>
     IEnumerator LoadNewScene()
     {
         // Have a delay at the beginning

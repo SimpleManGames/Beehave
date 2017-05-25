@@ -12,8 +12,8 @@ public class Simulation : Singleton<Simulation>
     /// <summary>
     /// Gets the agent with the ID that's passed in
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
+    /// <param name="id">The agent's ID that is to be gotten</param>
+    /// <returns>Returns an agent object with the requested ID</returns>
     public Agent GetAgent(int id)
     {
         return agents.Where(a => a.ID == id).FirstOrDefault();
