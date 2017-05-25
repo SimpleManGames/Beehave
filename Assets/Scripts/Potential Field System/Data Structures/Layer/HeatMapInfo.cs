@@ -40,6 +40,7 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
     public override void Awake()
     {
         base.Awake();
+        // Set up the dictionary we use to determine starting fields
         fieldSetupDictionary.Add(
             LayerMask.NameToLayer("Terrain"),
             new LayerSettings
@@ -56,8 +57,9 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
                 settings = DisperseSetting.Linear
             });
 
+        // Add all the Layers to the field with a correct size
         foreach (var type in Enum.GetValues(typeof(LayerType)))
-            field.Add((LayerType)type, new float[Grid.Instance.MapWidth * Grid.Instance.MapHeight]);
+            Field.Add((LayerType)type, new float[Grid.Instance.MapWidth * Grid.Instance.MapHeight]);
     }
 
     /// <summary>
@@ -77,19 +79,25 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
     /// <param name="type"></param>
     public void CalculateLinear(HexObject hexObject, LayerType type)
     {
-        var list = Grid.Instance.Hexes.Where(h => Instance.Field[LayerType.Terrain][h.Index] == 0);
+        // Gather all the hexes that aren't terrain
+        List<HexObject> hexNoTerrain = Grid.Instance.Hexes.Where(h => Instance.Field[LayerType.Terrain][h.Index] == 0).ToList();
 
+        // Set the starting hex to the max value
         Instance.Field[type][hexObject.Index] = 1;
 
+        // Track the largest distance
+        float maxDistance = float.MinValue;
+
+        foreach (var h in Grid.Instance.Hexes)
+        {
+            var dist = Hex.Distance(hexObject.hex, h.hex);
+            if (dist > maxDistance)
+                maxDistance = dist;
+        }
+
+        // Loop through all hexes
         foreach (var hex in Grid.Instance.Hexes)
         {
-            float maxDistance = float.MinValue;
-            Grid.Instance.Hexes.ForEach(h => {
-                var dist = Hex.Distance(hexObject.hex, h.hex);
-                if (dist > maxDistance)
-                    maxDistance = dist;
-            });
-
             float linearDistance = 1 - (Hex.Distance(hexObject.hex, hex.hex) / maxDistance);
 
             if (Instance.Field[type][hex.Index] < linearDistance)

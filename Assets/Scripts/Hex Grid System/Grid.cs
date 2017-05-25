@@ -165,12 +165,13 @@ public class Grid : Singleton<Grid>
     {
         // Create the object
         //GameObject hex = (GameObject)Instantiate(hexPrefab[Random.Range(0, hexPrefab.Count)]);
-        GameObject hex = Instantiate(hexObjectPrefab);
-        hex.name = string.Format("Hex {0} {1}", coord.Column, coord.Row);
+        GameObject hex = Instantiate(
+            hexObjectPrefab, 
+            transform.position + CalculateWorldPosition(new Vector2(coord.Column, coord.Row)), 
+            Quaternion.identity,
+            this.transform);
 
-        // Place the object
-        hex.transform.position = transform.position + CalculateWorldPosition(new Vector2(coord.Column, coord.Row));
-        hex.transform.parent = transform;
+        hex.name = string.Format("Hex {0} {1}", coord.Column, coord.Row);
 
         // Set up the object
         HexObject hexObject = hex.GetComponent<HexObject>();

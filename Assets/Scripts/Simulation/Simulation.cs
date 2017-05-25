@@ -19,6 +19,15 @@ public class Simulation : Singleton<Simulation>
         return agents.Where(a => a.ID == id).FirstOrDefault();
     }
 
+    /// <summary>
+    /// Gets all the agents that simulation currently has
+    /// </summary>
+    /// <returns>Returns all agents as an array</returns>
+    public Agent[] GetAllAgents()
+    {
+        return agents.ToArray();
+    }
+
     public int MakeAgent(Tasks startTask, List<Utility<UtilityType>> _agentUtilities, int startTile, bool isLiving)
     {
         int agentIndex = agents.Count();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [SelectionBase]
@@ -32,26 +33,27 @@ public class HexObject : MonoBehaviour
     /// </summary>
     private void SetupInitFieldData()
     {
+        float radius = GetComponentInChildren<MeshCollider>().bounds.size.x / 2;
         Collider[] objectsToCheck = Physics.OverlapSphere(transform.position, GetComponentInChildren<MeshCollider>().bounds.size.x / 2);
 
         foreach (var obj in objectsToCheck)
         {
             if (HeatMapInfo.Instance.fieldSetupDictionary.ContainsKey(obj.gameObject.layer))
             {
+                Debug.Log(LayerMask.LayerToName(obj.gameObject.layer));
                 var settings = HeatMapInfo.Instance.fieldSetupDictionary[obj.gameObject.layer];
 
                 switch (settings.settings)
                 {
+                    default:
                     case HeatMapInfo.DisperseSetting.None:
-                        throw new NotImplementedException();
+                        break;
                     case HeatMapInfo.DisperseSetting.Linear:
                         HeatMapInfo.Instance.CalculateLinear(this, settings.type);
                         break;
                     case HeatMapInfo.DisperseSetting.MinValue:
                         HeatMapInfo.Instance.Field[settings.type][Index] = float.MinValue;
                         break;
-                    default:
-                        return;
                 }
             }
         }
@@ -62,12 +64,13 @@ public class HexObject : MonoBehaviour
         meshFilter = transform.FindChild("hex_tile").GetComponentInChildren<MeshFilter>();
         meshRenderer = transform.FindChild("hex_tile").GetComponentInChildren<MeshRenderer>();
 
-        // This is in awake for scene loading
         SetupInitFieldData();
     }
 
     private void OnDrawGizmos()
     {
+        Gizmos.DrawWireSphere(transform.position, GetComponentInChildren<MeshCollider>().bounds.size.x / 2);
+
         Gizmos.color = Color.yellow;
         if (!meshRenderer.enabled)
             Gizmos.DrawWireMesh(meshFilter.mesh, transform.position, Quaternion.Euler(0, 90, 0));
