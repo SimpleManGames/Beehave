@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 [SelectionBase]
@@ -69,8 +70,6 @@ public class HexObject : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, GetComponentInChildren<MeshCollider>().bounds.size.x / 2);
-
         Gizmos.color = Color.yellow;
         if (!meshRenderer.enabled)
             Gizmos.DrawWireMesh(meshFilter.mesh, transform.position, Quaternion.Euler(0, 90, 0));
