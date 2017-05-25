@@ -8,26 +8,34 @@ using UnityEngine;
 /// </summary>
 public class Grid : Singleton<Grid>
 {
-    public List<GameObject> hexPrefabs = new List<GameObject>();
+    [SerializeField]
+    [Tooltip("Prefabs of the tiles to be randomly selected during generation")]
+    private List<GameObject> hexPrefabs = new List<GameObject>();
 
-    public GameObject hexObjectPrefab = null;
+    [SerializeField]
+    [Tooltip("The building that will be spawned at generation as the main hub")]
     public GameObject thronePrefab = null;
 
-    public LayerMask terrainLayerMask;
+    [SerializeField]
+    [Tooltip("Layer Mask that the terrain use")]
+    private LayerMask terrainLayerMask;
+
+    [SerializeField]
+    [Tooltip("Layer Mask that the hexes use")]
     public LayerMask hexLayerMask;
 
     #region Properties
 
     private Renderer hexObjectRenderer;
     /// <summary>
-    /// Returns a Renderer component two children down from the hexObjectPrefab
+    /// Returns a Renderer component two children down from the hexPrefabs[0]
     /// </summary>
     public Renderer HexObjectRenderer
     {
         get
         {
-            if (hexObjectRenderer == null && hexObjectPrefab != null)
-                hexObjectRenderer = hexObjectPrefab.transform.FindChild("hex_tile").GetComponentInChildren<Renderer>();
+            if (hexObjectRenderer == null && hexPrefabs[0] != null)
+                hexObjectRenderer = hexPrefabs[0].transform.FindChild("hex_tile").GetComponentInChildren<Renderer>();
 
             return hexObjectRenderer;
         }
@@ -35,14 +43,14 @@ public class Grid : Singleton<Grid>
 
     private MeshFilter hexObjectFilter;
     /// <summary>
-    /// Returns a MeshFilter component two children down form the hexObjectPrefab
+    /// Returns a MeshFilter component two children down fromm the hexPrefabs[0]
     /// </summary>
     public MeshFilter HexObjectFilter
     {
         get
         {
-            if (hexObjectFilter == null && hexObjectPrefab != null)
-                hexObjectFilter = hexObjectPrefab.transform.FindChild("hex_tile").GetComponentInChildren<MeshFilter>();
+            if (hexObjectFilter == null && hexPrefabs[0] != null)
+                hexObjectFilter = hexPrefabs[0].transform.FindChild("hex_tile").GetComponentInChildren<MeshFilter>();
 
             return hexObjectFilter;
         }
@@ -50,7 +58,7 @@ public class Grid : Singleton<Grid>
 
     private float hexWidth = -1337;
     /// <summary>
-    /// The width of the Renderer for hexObjectPrefab
+    /// The width of the Renderer for hexPrefabs[0]
     /// </summary>
     public float HexWidth
     {
@@ -61,10 +69,14 @@ public class Grid : Singleton<Grid>
 
             return hexWidth;
         }
+        set
+        {
+            hexWidth = value;
+        }
     }
     private float hexHeight = -1337;
     /// <summary>
-    /// The height of the Renderer for hexObjectPrefab
+    /// The height of the Renderer for hexPrefabs[0]
     /// </summary>
     public float HexHeight
     {
@@ -121,11 +133,19 @@ public class Grid : Singleton<Grid>
 
     #region Generation
 
+    /// <summary>
+    /// Figures out the position of the corner
+    /// </summary>
+    /// <returns>Vector3 were it's the top left corner</returns>
     private Vector3 CalculateInitPosition()
     {
         return new Vector3(-MapWidth / 2 + HexWidth, 0, MapHeight / 2 - HexHeight / 2);
     }
 
+    /// <summary>
+    /// Figures out the size of the map in hexes
+    /// </summary>
+    /// <returns></returns>
     private Vector2 CalculateGridSize()
     {
         float sideLength = HexHeight / 2;
@@ -138,16 +158,33 @@ public class Grid : Singleton<Grid>
         return new Vector2((int)(MapWidth / HexWidth), gridHeightInHexes);
     }
 
+    /// <summary>
+    /// Figures out the world position
+    /// </summary>
+    /// <param name="x">X</param>
+    /// <param name="y">Y</param>
+    /// <returns>Vector3 were it's world coord is at</returns>
     private Vector3 CalculateWorldPosition(float x, float y)
     {
         return CalculateWorldPosition(new Vector2(x, y));
     }
 
+    /// <summary>
+    /// Figures out the world position
+    /// </summary>
+    /// <param name="coord">The local offset coord</param>
+    /// <returns>Vector3 were it's world coord is at</returns>
     private Vector3 CalculateWorldPosition(OffsetCoord coord)
     {
         return CalculateWorldPosition(coord.Column, coord.Row);
     }
 
+
+    /// <summary>
+    /// Figures out the world position
+    /// </summary>
+    /// <param name="position">The local position</param>
+    /// <returns>Vector3 were it's world coord is at</returns>
     private Vector3 CalculateWorldPosition(Vector2 position)
     {
         Vector3 initPos = CalculateInitPosition();
@@ -161,14 +198,18 @@ public class Grid : Singleton<Grid>
         return new Vector3(x, 0, z);
     }
 
+    /// <summary>
+    /// Instantiates a new tile at the coord passed in
+    /// </summary>
+    /// <param name="coord">The coord to be used</param>
     private void PlaceTile(OffsetCoord coord)
     {
         // Create the object
         var hexPrefabObject = hexPrefabs[Random.Range(0, hexPrefabs.Count)];
         GameObject hex = Instantiate(
-            hexPrefabObject, 
-            transform.position + CalculateWorldPosition(new Vector2(coord.Column, coord.Row)), 
-            Quaternion.identity,
+            hexPrefabObject,
+            transform.position + CalculateWorldPosition(new Vector2(coord.Column, coord.Row)),
+            Quaternion.Euler(new Vector3(0, Random.Range(0, 5) * 60, 0)),
             this.transform);
 
         hex.name = string.Format("Hex {0} {1}", coord.Column, coord.Row);
@@ -180,6 +221,9 @@ public class Grid : Singleton<Grid>
         Instance.Hexes.Add(hexObject);
     }
 
+    /// <summary>
+    /// Main function for creating the grid of hexes
+    /// </summary>
     private void CreateGrid()
     {
         Vector2 gridSize = CalculateGridSize();
@@ -284,6 +328,10 @@ public class Grid : Singleton<Grid>
         }
     }
 
+    /// <summary>
+    /// Spawns 7 tiles around the index passed in and then places a throne building the index hex
+    /// </summary>
+    /// <param name="index">The middle hex index</param>
     private void SetStartTiles(int index = 302)
     {
         Hexes[index].IsCreep = true;
