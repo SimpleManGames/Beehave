@@ -7,6 +7,7 @@ public class AgentBrain : MonoBehaviour
     List<AgentTasks> availableTasks = new List<AgentTasks>();
     Tasks currentTask;
     bool taskReached = false;
+    bool taskComplete = false;
 
     public int targetTileIndex { get; private set; }
 
@@ -27,7 +28,7 @@ public class AgentBrain : MonoBehaviour
     //Detemine next best Task for the Agent to take on based on Task Utility
     private void EvalTasks()
     {
-        if(!taskReached)
+        if(!taskComplete)
         {
             return;
         }
@@ -70,6 +71,26 @@ public class AgentBrain : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void GatherPollen()
+    {
+
+    }
+
+    private void StorePollen()
+    {
+
+    }
+
+    private void Eat()
+    {
+
+    }
+
+    private void Sleep()
+    {
+
     }
 
     // Utility Scoring Method, uses switch to allow passing of all Tasks into one function and sorted there.
