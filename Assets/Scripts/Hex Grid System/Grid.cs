@@ -164,9 +164,9 @@ public class Grid : Singleton<Grid>
     private void PlaceTile(OffsetCoord coord)
     {
         // Create the object
-        //GameObject hex = (GameObject)Instantiate(hexPrefab[Random.Range(0, hexPrefab.Count)]);
+        var hexPrefabObject = hexPrefabs[Random.Range(0, hexPrefabs.Count)];
         GameObject hex = Instantiate(
-            hexObjectPrefab, 
+            hexPrefabObject, 
             transform.position + CalculateWorldPosition(new Vector2(coord.Column, coord.Row)), 
             Quaternion.identity,
             this.transform);

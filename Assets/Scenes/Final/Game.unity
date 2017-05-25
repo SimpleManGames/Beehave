@@ -99,6 +99,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4282437487606374, guid: de096965a066eb640b8e946a4b9c3a92, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1784,6 +1789,48 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1552468349687472, guid: d7630bf008e148f4a8d3a70e6a2257d6,
+        type: 2}
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1628352926990618, guid: 4e6048240316b3743801b389cb86ff39,
+        type: 2}
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1540148543862616, guid: 4f4ccb79ec3c14342968e12522ea609a,
+        type: 2}
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1498617733532992, guid: 80602ef710229614188acb3de6bdee0d,
+        type: 2}
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1110161156098648, guid: c70d6318b7216a142acea3bd2737d300,
+        type: 2}
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1921376290704896, guid: 7b63cdc7ade7dbe4fb212e98c7690acc,
+        type: 2}
+    - target: {fileID: 114059036832106434, guid: de096965a066eb640b8e946a4b9c3a92,
+        type: 2}
+      propertyPath: hexPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1628476635906908, guid: ce370b4182bef0c4da57379c2340b25d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de096965a066eb640b8e946a4b9c3a92, type: 2}
   m_IsPrefabParent: 0

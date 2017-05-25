@@ -41,7 +41,6 @@ public class HexObject : MonoBehaviour
         {
             if (HeatMapInfo.Instance.fieldSetupDictionary.ContainsKey(obj.gameObject.layer))
             {
-                Debug.Log(LayerMask.LayerToName(obj.gameObject.layer));
                 var settings = HeatMapInfo.Instance.fieldSetupDictionary[obj.gameObject.layer];
 
                 switch (settings.settings)
