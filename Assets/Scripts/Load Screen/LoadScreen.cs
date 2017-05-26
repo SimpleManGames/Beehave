@@ -51,7 +51,7 @@ public class LoadScreen : MonoBehaviour
     IEnumerator LoadNewScene()
     {
         // Have a delay at the beginning
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
 
         // Create variables
         AsyncOperation async;
