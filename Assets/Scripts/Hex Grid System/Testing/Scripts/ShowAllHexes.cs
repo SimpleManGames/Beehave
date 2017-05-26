@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShowAllHexes : MonoBehaviour
@@ -11,8 +12,8 @@ public class ShowAllHexes : MonoBehaviour
     {
         if (Grid.Instance != null && Grid.Instance.Hexes != null)
             if (show)
-                Grid.Instance.Hexes.ForEach(h => h.transform.GetChild(0).GetComponentInChildren<Renderer>().enabled = true);
+                Grid.Instance.Hexes.ToList().ForEach(h => h.transform.GetChild(0).GetComponentInChildren<Renderer>().enabled = true);
             else
-                Grid.Instance.Hexes.ForEach(h => h.transform.GetChild(0).GetComponentInChildren<Renderer>().enabled = false);
+                Grid.Instance.Hexes.ToList().ForEach(h => h.transform.GetChild(0).GetComponentInChildren<Renderer>().enabled = false);
     }
 }

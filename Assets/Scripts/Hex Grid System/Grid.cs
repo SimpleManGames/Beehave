@@ -93,11 +93,11 @@ public class Grid : Singleton<Grid>
         }
     }
 
-    private List<HexObject> hexes = new List<HexObject>();
+    private HashSet<HexObject> hexes = new HashSet<HexObject>();
     /// <summary>
     /// Handles the list of hexes
     /// </summary>
-    public List<HexObject> Hexes
+    public HashSet<HexObject> Hexes
     {
         get { return hexes; }
         set { hexes = value; }
@@ -260,13 +260,13 @@ public class Grid : Singleton<Grid>
                 editList.ToList().ForEach(edit =>
                 {
                     float maxDistance = float.MinValue;
-                    Instance.Hexes.ForEach(h =>
+                    Instance.Hexes.ToList().ForEach(h =>
                     {
                         if (Hex.Distance(h.hex, edit.hex) > maxDistance)
                             maxDistance = Hex.Distance(h.hex, edit.hex);
                     });
 
-                    float distLinear = 1 - (Hex.Distance(Instance.Hexes[collide.GetComponentInParent<HexObject>().Index].hex, edit.hex) / maxDistance);
+                    float distLinear = 1 - (Hex.Distance(Instance.Hexes.ElementAt(collide.GetComponentInParent<HexObject>().Index).hex, edit.hex) / maxDistance);
 
                     try
                     {
@@ -302,13 +302,13 @@ public class Grid : Singleton<Grid>
         foreach (var hex in editedList)
         {
             float maxDistance = float.MinValue;
-            Instance.Hexes.ForEach(h =>
+            Instance.Hexes.ToList().ForEach(h =>
             {
                 if (Hex.Distance(hex.hex, h.hex) > maxDistance)
                     maxDistance = Hex.Distance(hex.hex, h.hex);
             });
 
-            float distLinear = 1 - (Hex.Distance(Instance.hexes[index].hex, hex.hex) / maxDistance);
+            float distLinear = 1 - (Hex.Distance(Instance.Hexes.ElementAt(index).hex, hex.hex) / maxDistance);
             try
             {
                 if (HeatMapInfo.Instance.Field[layer][hex.Index] < distLinear)
@@ -334,14 +334,14 @@ public class Grid : Singleton<Grid>
     /// <param name="index">The middle hex index</param>
     private void SetStartTiles(int index = 302)
     {
-        Hexes[index].IsCreep = true;
+        Hexes.ElementAt(index).IsCreep = true;
         RaycastHit hit;
-        Physics.Raycast(FindHexObject(Hexes[index].hex.cubeCoords).transform.position - Vector3.up, Vector3.down, out hit, 2f);
+        Physics.Raycast(FindHexObject(Hexes.ElementAt(index).hex.cubeCoords).transform.position - Vector3.up, Vector3.down, out hit, 2f);
 
         GameObject throne = Instantiate(thronePrefab);
-        throne.transform.position = new Vector3(FindHexObject(Hexes[index].hex.cubeCoords).transform.position.x, hit.point.y, FindHexObject(Hexes[index].hex.cubeCoords).transform.position.z);
+        throne.transform.position = new Vector3(FindHexObject(Hexes.ElementAt(index).hex.cubeCoords).transform.position.x, hit.point.y, FindHexObject(Hexes.ElementAt(index).hex.cubeCoords).transform.position.z);
 
-        Hex.Neighbours(Hexes[index].hex).ToList().ForEach(h => FindHexObject(h.cubeCoords).IsCreep = true);
+        Hex.Neighbours(Hexes.ElementAt(index).hex).ToList().ForEach(h => FindHexObject(h.cubeCoords).IsCreep = true);
     }
 
     #endregion
@@ -365,7 +365,8 @@ public class Grid : Singleton<Grid>
     /// <returns>HexObject with the requested Index</returns>
     public static HexObject FindHexObject(int index)
     {
-        return Instance.Hexes.Where(h => h.Index == index).FirstOrDefault();
+        //return Instance.Hexes.Where(h => h.Index == index).FirstOrDefault();
+        return Instance.Hexes.ToList().Find(h => h.Index == index);
     }
 
     /// <summary>
