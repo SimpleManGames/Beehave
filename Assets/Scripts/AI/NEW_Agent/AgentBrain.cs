@@ -5,7 +5,7 @@ using UnityEngine;
 public class AgentBrain : MonoBehaviour
 {
     List<AgentTasks> availableTasks = new List<AgentTasks>();
-    Tasks currentTask;
+    public AgentTasks currentTask { get; private set; }
     bool taskReached = false;
     bool taskComplete = false;
 
@@ -20,7 +20,7 @@ public class AgentBrain : MonoBehaviour
         // Calls all Evaluation Tasks for Agent if needed (i.e. will only do FindTargetTile if it's reached it's targetTileIndex)
         if (taskReached)
         {
-            DoTask();
+            currentTask.DoTask();
         }
         else FindTargetTile();
     }
@@ -33,7 +33,7 @@ public class AgentBrain : MonoBehaviour
             return;
         }
 
-        Tasks bestTask = Tasks.Null;
+        AgentTasks bestTask = new AgentTasks();
         float bestScore = 0;
 
         foreach (var Task in availableTasks)
@@ -43,7 +43,7 @@ public class AgentBrain : MonoBehaviour
             // Innocent method of just setting the Task with highest weight to be our current Task
             if (Task.weight > bestScore)
             {
-                bestTask = Task.task;
+                bestTask = Task;
             }
 
             currentTask = bestTask;
@@ -64,34 +64,6 @@ public class AgentBrain : MonoBehaviour
         globalIndex = 0; // Should be set by "AddAgent(this)" method in Simulation when completed
     }
 
-    private void DoTask()
-    {
-        switch(currentTask)
-        {
-            default:
-                break;
-        }
-    }
-
-    private void GatherPollen()
-    {
-
-    }
-
-    private void StorePollen()
-    {
-
-    }
-
-    private void Eat()
-    {
-
-    }
-
-    private void Sleep()
-    {
-
-    }
 
     // Utility Scoring Method, uses switch to allow passing of all Tasks into one function and sorted there.
     private float EvalUtility(Tasks evalTask)
