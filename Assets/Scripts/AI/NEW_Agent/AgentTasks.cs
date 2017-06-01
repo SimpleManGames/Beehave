@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AgentTasks
 {
+    AgentUtilities attachedUtilities;
+    AgentBrain attachedBrain;
+
     AgentTasks(Tasks _task, float _weight = 0)
     {
         task = _task;
@@ -14,7 +17,16 @@ public class AgentTasks
     public float weight { get; private set; }
 
     public void SetWeight(float _weight)
-    {
+    { 
         weight = _weight;
+    }
+
+    public void DoTask()
+    {
+        switch (task)
+        {
+            default:
+                break;
+        }
     }
 }
