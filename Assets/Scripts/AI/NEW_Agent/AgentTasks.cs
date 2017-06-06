@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentTasks
+public class AgentTask
 {
-    AgentUtilities attachedUtilities;
-    AgentBrain attachedBrain;
-
-    AgentTasks(Tasks _task, float _weight = 0)
+    public AgentTask(Tasks _task, float _weight = 0)
     {
         task = _task;
         weight = _weight;
@@ -25,8 +22,40 @@ public class AgentTasks
     {
         switch (task)
         {
+            case Tasks.Eat:
+                DoEat();
+                break;
+            case Tasks.Sleep:
+                DoSleep();
+                break;
+            case Tasks.GatherPollen:
+                DoGatherPollen();
+                break;
+            case Tasks.StorePollen:
+                DoStorePollen();
+                break;
             default:
                 break;
         }
+    }
+
+    private void DoEat()
+    {
+        
+    }
+
+    private void DoSleep()
+    {
+
+    }
+
+    private void DoGatherPollen()
+    {
+
+    }
+
+    private void DoStorePollen()
+    {
+
     }
 }

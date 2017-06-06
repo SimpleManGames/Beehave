@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AgentBrain : MonoBehaviour
 {
-    List<AgentTasks> availableTasks = new List<AgentTasks>();
-    public AgentTasks currentTask { get; private set; }
+    List<AgentTask> availableTasks = new List<AgentTask>();
+    public AgentTask currentTask { get; private set; }
     bool taskReached = false;
     bool taskComplete = false;
 
@@ -33,7 +33,7 @@ public class AgentBrain : MonoBehaviour
             return;
         }
 
-        AgentTasks bestTask = new AgentTasks();
+        AgentTask bestTask = new AgentTask(Tasks.Null, this);
         float bestScore = 0;
 
         foreach (var Task in availableTasks)
