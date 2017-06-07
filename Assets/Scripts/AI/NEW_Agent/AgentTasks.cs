@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class AgentTask
 {
-    public AgentTask(Tasks _task, AgentBase attachedBase, float _weight = 0)
+    public AgentTask(Tasks _type, AgentBase attachedBase, float _weight = 0)
     {
-        task = _task;
+        type = _type;
         weight = _weight;
         affectedAgent = attachedBase;
     }
 
     private AgentBase affectedAgent;
-    public Tasks task { get; private set; }
+    public Tasks type { get; private set; }
     public float weight { get; private set; }
 
     public void SetWeight(float _weight)
@@ -22,7 +22,7 @@ public class AgentTask
 
     public void DoTask()
     {
-        switch (task)
+        switch (type)
         {
             case Tasks.Eat:
                 DoEat();
