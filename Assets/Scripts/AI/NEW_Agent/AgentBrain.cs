@@ -12,17 +12,11 @@ public class AgentBrain : MonoBehaviour
     public int targetTileIndex { get; private set; }
 
     private AgentSteering attachedController;
-
-    public int globalIndex { get; private set; }
+    private AgentBase attachedBase;
 
     public void Evaluate()
     {
         // Calls all Evaluation Tasks for Agent if needed (i.e. will only do FindTargetTile if it's reached it's targetTileIndex)
-        if (taskReached)
-        {
-            currentTask.DoTask();
-        }
-        else FindTargetTile();
     }
 
     //Detemine next best Task for the Agent to take on based on Task Utility
@@ -33,7 +27,7 @@ public class AgentBrain : MonoBehaviour
             return;
         }
 
-        AgentTask bestTask = new AgentTask(Tasks.Null, this);
+        AgentTask bestTask = new AgentTask(Tasks.Null);
         float bestScore = 0;
 
         foreach (var Task in availableTasks)
@@ -61,7 +55,6 @@ public class AgentBrain : MonoBehaviour
     private void Start()
     {
         attachedController = this.GetComponent<AgentSteering>();
-        globalIndex = 0; // Should be set by "AddAgent(this)" method in Simulation when completed
     }
 
 
