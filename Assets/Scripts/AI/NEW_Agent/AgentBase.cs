@@ -15,9 +15,19 @@ public class AgentBase : MonoBehaviour
     public void Start()
     {
         SetProperties();
+
+        // Code to add to Simulation and give ID
     }
 
-    void SetProperties()
+    public void GrowAgentProperties()
+    {
+        foreach(var property in properties)
+        {
+            property.GrowWeight();
+        }
+    }
+
+    private void SetProperties()
     {
         switch(type)
         {

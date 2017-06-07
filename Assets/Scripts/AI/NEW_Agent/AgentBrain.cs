@@ -27,7 +27,7 @@ public class AgentBrain : MonoBehaviour
             return;
         }
 
-        AgentTask bestTask = new AgentTask(Tasks.Null);
+        AgentTask bestTask = new AgentTask(Tasks.Null, attachedBase);
         float bestScore = 0;
 
         foreach (var Task in availableTasks)
@@ -55,6 +55,17 @@ public class AgentBrain : MonoBehaviour
     private void Start()
     {
         attachedController = this.GetComponent<AgentSteering>();
+        attachedBase = this.GetComponent<AgentBase>();
+
+        PrepTaskList();
+    }
+
+    public void PrepTaskList()
+    {
+        availableTasks.Add(new AgentTask(Tasks.Eat, attachedBase));
+        availableTasks.Add(new AgentTask(Tasks.Sleep, attachedBase));
+        availableTasks.Add(new AgentTask(Tasks.GatherPollen, attachedBase));
+        availableTasks.Add(new AgentTask(Tasks.StorePollen, attachedBase));
     }
 
 

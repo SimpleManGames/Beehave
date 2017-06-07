@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AgentTask
 {
-    public AgentTask(Tasks _task, float _weight = 0)
+    public AgentTask(Tasks _task, AgentBase attachedBase, float _weight = 0)
     {
         task = _task;
         weight = _weight;
+        affectedAgent = attachedBase;
     }
 
+    private AgentBase affectedAgent;
     public Tasks task { get; private set; }
     public float weight { get; private set; }
 
