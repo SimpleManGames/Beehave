@@ -22,14 +22,17 @@ public class AgentBrain : MonoBehaviour
         attachedController = this.GetComponent<AgentSteering>();
         attachedBase = this.GetComponent<AgentBase>();
 
+        currentTask = new AgentTask(Tasks.Null, attachedBase);
         PrepTaskList();
+
+        UpdateAgent();
     }
 
     public void Update()
     {
         if(taskComplete || taskReached || attachedController.targetReached)
         {
-            // Set agent to be queued for update withe the simulation.
+            Simulation.Instance.agentUpdate += new Simulation.AgentUpdateDel(UpdateAgent);
         }
     }
 
@@ -63,7 +66,7 @@ public class AgentBrain : MonoBehaviour
     // TODO: Add functionality for adding tiles to previous tile queue
     private void FindTargetTile()
     {
-        Hex[] adjacencyList = Hex.Neighbours(Grid.FindHexObject(attachedController.).hex);
+        Hex[] adjacencyList = Hex.Neighbours(Grid.FindHexObject(attachedController.targetTileIndex).hex);
         int bestTile = 0;
         float bestWeight = 0;
 
