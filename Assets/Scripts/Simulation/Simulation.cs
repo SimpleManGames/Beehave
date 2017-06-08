@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -70,7 +71,11 @@ public class Simulation : Singleton<Simulation>
     {
         // TODO: See if this runs better as an event or foreach loop
         //GlobalResources.Instance.TotalHoney += 10;
-        agents.ForEach(a => a.Evaluate());
+        //agents.ForEach(a => a.Evaluate());
+
+        agentUpdate();
+        agentUpdate = delegate { };
+
         currentFrame++;
     }
 }
