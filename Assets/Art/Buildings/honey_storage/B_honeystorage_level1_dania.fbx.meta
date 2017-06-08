@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f38c0f1abeaed194881c352cafe09519
-timeCreated: 1493923053
+guid: 631fa5f1ede8dfe45ae259ca815aae03
+timeCreated: 1496963707
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: bh_3d_bld_honey_storage_kyle_02
+    4300000: B_honeystorage_level1_dania
     9500000: //RootNode
   materials:
     importMaterials: 1
