@@ -11,14 +11,14 @@ public class Simulation : Singleton<Simulation>
     /// <summary>
     /// List of all the agents
     /// </summary>
-    private List<Agent> agents = new List<Agent>();
+    private List<AgentBase> agents = new List<AgentBase>();
 
     /// <summary>
     /// Gets the agent with the ID that's passed in
     /// </summary>
     /// <param name="id">The agent's ID that is to be gotten</param>
     /// <returns>Returns an agent object with the requested ID</returns>
-    public Agent GetAgent(int id)
+    public AgentBase GetAgent(int id)
     {
         return agents.Where(a => a.ID == id).FirstOrDefault();
     }
@@ -27,22 +27,20 @@ public class Simulation : Singleton<Simulation>
     /// Gets all the agents that simulation currently has
     /// </summary>
     /// <returns>Returns all agents as an array</returns>
-    public Agent[] GetAllAgents()
+    public AgentBase[] GetAllAgents()
     {
         return agents.ToArray();
     }
 
-    public int MakeAgent(Tasks startTask, List<Utility<UtilityType>> _agentUtilities, int startTile, bool isLiving)
+    public int AddAgent(AgentBase newAgent)
     {
         int agentIndex = agents.Count();
-
-        Agent newAgent = new Agent(agentIndex, startTask, _agentUtilities, startTile, isLiving);
 
         ReverseLookup.Instance.AddAgent(newAgent);
 
         agents.Add(newAgent);
 
-        return newAgent.ID;
+        return agentIndex;
     }
 
     // Time from when we last changed frame
@@ -69,12 +67,11 @@ public class Simulation : Singleton<Simulation>
     /// </summary>
     private void GameFrameTurn()
     {
-        // TODO: See if this runs better as an event or foreach loop
-        //GlobalResources.Instance.TotalHoney += 10;
-        //agents.ForEach(a => a.Evaluate());
-
-        agentUpdate();
-        agentUpdate = delegate { };
+        if(agentUpdate != null)
+        {
+            agentUpdate();
+            agentUpdate = delegate { };
+        }
 
         currentFrame++;
     }

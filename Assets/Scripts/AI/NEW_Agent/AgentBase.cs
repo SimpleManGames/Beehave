@@ -7,16 +7,15 @@ public enum AgentType { Bee, House, Storage, Plant, Food }
 public class AgentBase : MonoBehaviour
 {
     //Set in the Unity Editor based on the Prefab Type
-    AgentType type;
+    public AgentType type { get; private set; }
     public int ID { get; private set; }
-    public int currentTile { get; private set; }
+    public int currentTileIndex { get; private set; }
     List<AgentProperty> properties = new List<AgentProperty>();
 
     public void Start()
     {
         SetProperties();
-
-        // Code to add to Simulation and give ID
+        ID = Simulation.Instance.AddAgent(this);
     }
 
     public void GrowAgentProperties()
@@ -25,6 +24,20 @@ public class AgentBase : MonoBehaviour
         {
             property.GrowWeight();
         }
+    }
+
+    public AgentProperty GetPropertyofType(PropertyType wantedProperty)
+    {
+        foreach(var property in properties)
+        {
+            if(property.type == wantedProperty)
+            {
+                return property;
+            }
+        }
+
+        Debug.Log("Expected AgentProperty not found");
+        return null;
     }
 
     private void SetProperties()
@@ -53,6 +66,6 @@ public class AgentBase : MonoBehaviour
 
     public void SetCurrentTile(int tileIndex)
     {
-        currentTile = tileIndex;
+        currentTileIndex = tileIndex;
     }
 }
