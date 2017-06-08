@@ -36,6 +36,7 @@ public class Interaction : Singleton<Interaction>
         if (objToPlace != null)
         {
             Material[] mats = objToPlace.GetComponent<Renderer>().materials;
+
             for (int i = 0; i < mats.Length; i++)
             {
                 mats[i] = placingMat;
@@ -160,6 +161,7 @@ public class Interaction : Singleton<Interaction>
         {
             selecting = false;
             mouseDown = false;
+            objToPlace = null;
             return;
         }
     }
