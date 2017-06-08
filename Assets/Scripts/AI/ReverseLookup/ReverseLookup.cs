@@ -5,7 +5,6 @@ using System.Linq;
 public class ReverseLookup : Singleton<ReverseLookup>
 {
     // List of Lists that hold Agent Index's for Looking up Agents that share a tile
-    // TODO: Fixing to add a class instead of internal lists
     private List<TileAgents> TileLookup = new List<TileAgents>();
 
     public void MoveAgent(Agent agent)

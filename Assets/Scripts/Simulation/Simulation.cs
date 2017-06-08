@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Simulation : Singleton<Simulation>
 {
+    public delegate void AgentUpdateDel();
+    public AgentUpdateDel agentUpdate;
+
     /// <summary>
     /// List of all the agents
     /// </summary>
@@ -12,11 +16,20 @@ public class Simulation : Singleton<Simulation>
     /// <summary>
     /// Gets the agent with the ID that's passed in
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
+    /// <param name="id">The agent's ID that is to be gotten</param>
+    /// <returns>Returns an agent object with the requested ID</returns>
     public Agent GetAgent(int id)
     {
         return agents.Where(a => a.ID == id).FirstOrDefault();
+    }
+
+    /// <summary>
+    /// Gets all the agents that simulation currently has
+    /// </summary>
+    /// <returns>Returns all agents as an array</returns>
+    public Agent[] GetAllAgents()
+    {
+        return agents.ToArray();
     }
 
     public int MakeAgent(Tasks startTask, List<Utility<UtilityType>> _agentUtilities, int startTile, bool isLiving)
@@ -58,7 +71,11 @@ public class Simulation : Singleton<Simulation>
     {
         // TODO: See if this runs better as an event or foreach loop
         //GlobalResources.Instance.TotalHoney += 10;
-        agents.ForEach(a => a.Evaluate());
+        //agents.ForEach(a => a.Evaluate());
+
+        agentUpdate();
+        agentUpdate = delegate { };
+
         currentFrame++;
     }
 }

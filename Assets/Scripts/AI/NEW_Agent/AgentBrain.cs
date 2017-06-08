@@ -4,101 +4,148 @@ using UnityEngine;
 
 public class AgentBrain : MonoBehaviour
 {
-    List<AgentTasks> availableTasks = new List<AgentTasks>();
-    Tasks currentTask;
-    bool taskReached = false;
-    bool taskComplete = false;
+    List<AgentTask> availableTasks = new List<AgentTask>();
+    public AgentTask currentTask { get; private set; }
+    private bool taskReached = false;
+    private bool taskComplete = false;
 
     public int targetTileIndex { get; private set; }
 
     private AgentSteering attachedController;
+    private AgentBase attachedBase;
 
-    public int globalIndex { get; private set; }
+    private Queue<int> prevTileIndices = new Queue<int>();
+    private int tileMemory = 5;
 
-    public void Evaluate()
+    private void Start()
     {
-        // Calls all Evaluation Tasks for Agent if needed (i.e. will only do FindTargetTile if it's reached it's targetTileIndex)
-        if (taskReached)
+        attachedController = this.GetComponent<AgentSteering>();
+        attachedBase = this.GetComponent<AgentBase>();
+
+        currentTask = new AgentTask(Tasks.Null, attachedBase);
+        PrepTaskList();
+
+        UpdateAgent();
+    }
+
+    public void Update()
+    {
+        if(taskComplete || taskReached || attachedController.targetReached)
         {
-            DoTask();
+            Simulation.Instance.agentUpdate += new Simulation.AgentUpdateDel(UpdateAgent);
         }
-        else FindTargetTile();
+    }
+
+    public void UpdateAgent()
+    {
+        if(taskComplete || currentTask.type == Tasks.Null)
+        {
+            EvalTasks();
+        }
+
+        if(taskReached)
+        {
+            currentTask.DoTask();
+            return;
+        }
+
+        if(attachedController.targetReached)
+        {
+            FindTargetTile();
+        }
+    }
+
+    public void PrepTaskList()
+    {
+        availableTasks.Add(new AgentTask(Tasks.Eat, attachedBase));
+        availableTasks.Add(new AgentTask(Tasks.Sleep, attachedBase));
+        availableTasks.Add(new AgentTask(Tasks.GatherPollen, attachedBase));
+        availableTasks.Add(new AgentTask(Tasks.StorePollen, attachedBase));
+    }
+
+    // TODO: Add functionality for adding tiles to previous tile queue
+    private void FindTargetTile()
+    {
+        Hex[] adjacencyList = Hex.Neighbours(Grid.FindHexObject(attachedController.targetTileIndex).hex);
+        int bestTile = 0;
+        float bestWeight = 0;
+
+        foreach (var tile in adjacencyList)
+        {
+            float currentWeight = 0;
+            HexObject currentTile = Grid.FindHexObject(tile.cubeCoords);
+
+            if (currentTile == null || prevTileIndices.Contains(currentTile.Index))
+            {
+                continue;
+            }
+
+            if(currentTask.type == Tasks.Null)
+            {
+                currentWeight += Random.Range(0f, 1f);
+            }
+            else
+            {
+                currentWeight += HeatMapInfo.Instance.Field[currentTask.layer][currentTile.Index];
+                if (currentWeight >= 1f)
+                {
+                    AddPrevTile(attachedController.targetTileIndex);
+                    attachedBase.SetCurrentTile(attachedController.targetTileIndex);
+                    attachedController.SetTargetTile(currentTile.Index);
+                    taskReached = true;
+                    return;
+                }
+            }
+
+            currentWeight += HeatMapInfo.Instance.Field[LayerType.Terrain][currentTile.Index];
+            if (currentWeight >= bestWeight)
+            {
+                bestWeight = currentWeight;
+                bestTile = currentTile.Index;
+            }
+        }
+
+        AddPrevTile(attachedController.targetTileIndex);
+        attachedBase.SetCurrentTile(attachedController.targetTileIndex);
+        attachedController.SetTargetTile(bestTile);
+    }
+
+    // Add tile to prevTile Queue
+    void AddPrevTile(int tileIndex)
+    {
+        prevTileIndices.Enqueue(tileIndex);
+        if (prevTileIndices.Count > tileMemory)
+        {
+            prevTileIndices.Dequeue();
+        }
     }
 
     //Detemine next best Task for the Agent to take on based on Task Utility
     private void EvalTasks()
     {
-        if(!taskComplete)
-        {
-            return;
-        }
-
-        Tasks bestTask = Tasks.Null;
+        AgentTask bestTask = new AgentTask(Tasks.Null, attachedBase);
         float bestScore = 0;
 
         foreach (var Task in availableTasks)
         {
-            Task.SetWeight(EvalUtility(Task.task));
+            Task.SetWeight(EvalUtility(Task));
 
             // Innocent method of just setting the Task with highest weight to be our current Task
             if (Task.weight > bestScore)
             {
-                bestTask = Task.task;
+                bestTask = Task;
             }
 
             currentTask = bestTask;
         }
     }
 
-    private void FindTargetTile()
-    {
-        // If CurrentTile Layer Value is 1 set TaskReached to True and return
-        // Finds Target Tile and passes it to AgentSteeringScript to be Handled
-
-        attachedController.SetTargetTile(targetTileIndex);
-    }
-
-    private void Start()
-    {
-        attachedController = this.GetComponent<AgentSteering>();
-        globalIndex = 0; // Should be set by "AddAgent(this)" method in Simulation when completed
-    }
-
-    private void DoTask()
-    {
-        switch(currentTask)
-        {
-            default:
-                break;
-        }
-    }
-
-    private void GatherPollen()
-    {
-
-    }
-
-    private void StorePollen()
-    {
-
-    }
-
-    private void Eat()
-    {
-
-    }
-
-    private void Sleep()
-    {
-
-    }
-
     // Utility Scoring Method, uses switch to allow passing of all Tasks into one function and sorted there.
-    private float EvalUtility(Tasks evalTask)
+    private float EvalUtility(AgentTask evalTask)
     {
         float score = 0;
 
-        switch (evalTask)
+        switch (evalTask.type)
         {
             case Tasks.Eat:
                 score = ScoreEat();
