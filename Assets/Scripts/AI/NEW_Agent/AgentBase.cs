@@ -50,4 +50,9 @@ public class AgentBase : MonoBehaviour
                 break;
         }
     }
+
+    public void SetCurrentTile(int tileIndex)
+    {
+        currentTile = tileIndex;
+    }
 }
