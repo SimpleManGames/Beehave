@@ -66,7 +66,6 @@ public class GlobalResources : Singleton<GlobalResources>
     public override void Awake()
     {
         base.Awake();
-
         PopulationCap = 200;
         TotalHoney = 0;
         TotalPollen = 0;

@@ -18,10 +18,6 @@ public class PopupController : MonoBehaviour {
             }
         }
     }
-    public void ActiveChild()
-    {
-        
-    }
     public void CloseAllPopups()
     {
         CloseAllSecondaryPopups();
