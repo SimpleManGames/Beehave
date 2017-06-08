@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 39d34912a44bf3842acf56e039d8a467
+timeCreated: 1495730037
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: square_white
+    21300002: square_border_gray
+    21300004: square_darkGray
+    21300006: triangle_white
+    21300008: triangle_gray
+    21300010: round_rectangle_white
+    21300012: round_rectangle_yellow
+    21300014: round_rectangle_white_border_yellow
+    21300016: round_rectangle_border_yellow
+    21300018: triangle_yellow
+    21300020: hex_White
+    21300022: hex_White_border_gray
+    21300024: hex_gray_border_white
+    21300026: hex_yellow
+    21300028: hex_white_border_yellow
+    21300030: hex_gray_border_yellow
+    21300032: hex_border_yellow
+    21300034: x_darkGray
+    21300036: x_yellow
+    21300038: circle_darkGray
+    21300040: beehaveSpriteSheet 1_20
+    21300042: beehaveSpriteSheet 1_21
+    21300044: beehaveSpriteSheet 1_22
+    21300046: beehaveSpriteSheet 1_23
+    21300048: beehaveSpriteSheet 1_24
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 750
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: square_white
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 3281
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 96, y: 91, z: 123, w: 130}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: square_border_gray
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 3281
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 121, y: 91, z: 103, w: 130}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: square_darkGray
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 3281
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 122, y: 93, z: 94, w: 128}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: triangle_white
+      rect:
+        serializedVersion: 2
+        x: 2445
+        y: 3281
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: triangle_gray
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 3281
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: round_rectangle_white
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 2466
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 133, y: 123, z: 148, w: 153}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: round_rectangle_yellow
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 2466
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 157, y: 124, z: 126, w: 152}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: round_rectangle_white_border_yellow
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 2466
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 157, y: 124, z: 133, w: 152}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: round_rectangle_border_yellow
+      rect:
+        serializedVersion: 2
+        x: 2445
+        y: 2466
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 151, y: 124, z: 136, w: 150}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: triangle_yellow
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 2466
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_White
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1651
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 248, y: 397, z: 258, w: 417}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_White_border_gray
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 1651
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 281, y: 398, z: 252, w: 416}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_gray_border_white
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 1651
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 281, y: 398, z: 258, w: 416}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_yellow
+      rect:
+        serializedVersion: 2
+        x: 2445
+        y: 1651
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 269, y: 398, z: 263, w: 416}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_white_border_yellow
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 1651
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 273, y: 398, z: 267, w: 416}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_gray_border_yellow
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 836
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 272, y: 401, z: 284, w: 413}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hex_border_yellow
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 836
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 281, y: 401, z: 251, w: 413}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: x_darkGray
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 836
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: x_yellow
+      rect:
+        serializedVersion: 2
+        x: 2445
+        y: 836
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: circle_darkGray
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 836
+        width: 815
+        height: 815
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

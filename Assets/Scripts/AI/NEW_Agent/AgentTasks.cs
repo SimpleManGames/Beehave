@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AgentTask
 {
-    public AgentTask(Tasks _type, AgentBase attachedBase, float _weight = 0)
+    public AgentTask(Tasks _type, AgentBase _attachedBase, float _weight = 0)
     {
         type = _type;
         weight = _weight;
-        affectedAgent = attachedBase;
+        attachedBase = _attachedBase;
 
         switch(type)
         {
@@ -27,7 +27,7 @@ public class AgentTask
         }
     }
 
-    private AgentBase affectedAgent;
+    private AgentBase attachedBase;
     public Tasks type { get; private set; }
     public LayerType layer { get; private set; }
     public float weight { get; private set; }
