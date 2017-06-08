@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Simulation : Singleton<Simulation>
 {
+    public delegate void AgentUpdateDel();
+    public AgentUpdateDel agentUpdate;
+
     /// <summary>
     /// List of all the agents
     /// </summary>

@@ -24,6 +24,11 @@ public class Rail : MonoBehaviour
 
     public void Start()
     {
+        GetNodes();
+    }
+
+    public void GetNodes()
+    {
         // For some reason GetComponentsInChildren also returns the parent so we have to ignore him
         nodes = GetComponentsInChildren<Transform>().Where(x => x.transform != this.transform).ToArray();
     }
@@ -110,7 +115,7 @@ public class Rail : MonoBehaviour
         return Quaternion.Lerp(q1, q2, ratio);
     }
 
-    public void OnDrawGizmos()
+    public void OnDrawGizmosSelected()
     {
         for (int i = 0; i < nodes.Length - 1; i++)
         {

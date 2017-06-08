@@ -39,5 +39,8 @@ public class RailEditor : Editor
         serializedObject.Update();
         list.DoLayoutList();
         serializedObject.ApplyModifiedProperties();
+
+        if (GUILayout.Button("Update Nodes"))
+            rail.GetNodes();
     }
 }
