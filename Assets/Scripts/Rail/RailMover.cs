@@ -45,6 +45,13 @@ public class RailMover : MonoBehaviour
     private bool pingPong;
 
     /// <summary>
+    /// The time before this object will start along the path define by the nodes in rail reference
+    /// </summary>
+    [SerializeField]
+    [Tooltip("Time before this object will start along the path")]
+    private float delay;
+
+    /// <summary>
     /// The current segment we are on
     /// Segment here is defined by which two nodes we are between
     /// </summary>
@@ -57,6 +64,10 @@ public class RailMover : MonoBehaviour
     /// Indicates if we have finished going to end defined by isReversed
     /// </summary>
     private bool isCompleted;
+    /// <summary>
+    /// Current incremented time
+    /// </summary>
+    private float currentDelayCounter;
 
     public void Update()
     {
@@ -66,8 +77,12 @@ public class RailMover : MonoBehaviour
 
         // If we haven't completed
         if (!isCompleted)
-            // Play in the direction specified
-            Play(!isReversed);
+        {
+            currentDelayCounter += Time.deltaTime;
+            if (currentDelayCounter >= delay)
+                // Play in the direction specified
+                Play(!isReversed);
+        }
     }
 
     /// <summary>

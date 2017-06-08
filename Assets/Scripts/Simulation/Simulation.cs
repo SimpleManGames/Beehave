@@ -73,7 +73,9 @@ public class Simulation : Singleton<Simulation>
         //GlobalResources.Instance.TotalHoney += 10;
         //agents.ForEach(a => a.Evaluate());
 
-        agentUpdate();
+        if (agentUpdate != null)
+            agentUpdate();
+
         agentUpdate = delegate { };
 
         currentFrame++;
