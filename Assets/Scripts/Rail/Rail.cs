@@ -58,7 +58,10 @@ public class Rail : MonoBehaviour
     private Vector3 Linear(int seg, float ratio)
     {
         Vector3 p1 = nodes[seg].position;
-        Vector3 p2 = nodes[seg + 1].position;
+        Vector3 p2 = p1;
+        if (seg != nodes.Length - 1)
+            p2 = nodes[seg + 1].position;
+
 
         return Vector3.Lerp(p1, p2, ratio);
     }
@@ -110,12 +113,14 @@ public class Rail : MonoBehaviour
     public Quaternion Rotation(int seg, float ratio)
     {
         Quaternion q1 = nodes[seg].rotation;
-        Quaternion q2 = nodes[seg + 1].rotation;
+        Quaternion q2 = q1;
+        if (seg != nodes.Length - 1)
+            q2 = nodes[seg + 1].rotation;
 
         return Quaternion.Lerp(q1, q2, ratio);
     }
 
-    public void OnDrawGizmosSelected()
+    public void OnDrawGizmos()
     {
         for (int i = 0; i < nodes.Length - 1; i++)
         {
@@ -125,5 +130,6 @@ public class Rail : MonoBehaviour
             Handles.Label(nodes[i].position, (i + 1).ToString());
 #endif
         }
+        Handles.Label(nodes.Last().position, nodes.Length.ToString());
     }
 }
