@@ -9,10 +9,27 @@ public class AgentTask
         type = _type;
         weight = _weight;
         affectedAgent = attachedBase;
+
+        switch(type)
+        {
+            case Tasks.Eat:
+                layer = LayerType.Honey;
+                break;
+            case Tasks.Sleep:
+                layer = LayerType.Sleep;
+                break;
+            case Tasks.GatherPollen:
+                layer = LayerType.Pollen;
+                break;
+            case Tasks.StorePollen:
+                layer = LayerType.Pollen_Storge;
+                break;
+        }
     }
 
     private AgentBase affectedAgent;
     public Tasks type { get; private set; }
+    public LayerType layer { get; private set; }
     public float weight { get; private set; }
 
     public void SetWeight(float _weight)

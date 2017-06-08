@@ -9,12 +9,14 @@ public class AgentSteering : MonoBehaviour
 
     public const float goalDistance = .5f;
 
+    public int targetTileIndex = 0;
     Vector3 targetPosition;
 
     public bool targetReached { get; private set; }
 
     public void SetTargetTile(int target)
     {
+        targetTileIndex = target;
         targetPosition = Grid.FindHexObject(target).transform.position;
     }
 
