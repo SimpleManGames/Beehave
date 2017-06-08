@@ -9,7 +9,7 @@ public class TileAgents
 
     int?[] agentsOnTile = new int?[maxTileCapacity];
 
-    public void AddAgent(Agent newAgent)
+    public void AddAgent(AgentBase newAgent)
     {
         for(int i = 0; i < agentsOnTile.Length; i++)
         {
@@ -21,7 +21,7 @@ public class TileAgents
         }
     }
 
-    public void DeleteAgent(Agent movingAgent)
+    public void DeleteAgent(AgentBase movingAgent)
     {
 
         for(int i = 0; i < agentsOnTile.Length; i++)

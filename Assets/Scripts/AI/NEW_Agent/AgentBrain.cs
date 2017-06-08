@@ -17,6 +17,8 @@ public class AgentBrain : MonoBehaviour
     private Queue<int> prevTileIndices = new Queue<int>();
     private int tileMemory = 5;
 
+    AnimationCurve utilityCurve = new AnimationCurve();
+
     private void Start()
     {
         attachedController = this.GetComponent<AgentSteering>();
@@ -168,6 +170,8 @@ public class AgentBrain : MonoBehaviour
 
     private float ScoreGatherPollen()
     {
+
+
         return 0f;
     }
 

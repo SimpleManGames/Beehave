@@ -42,39 +42,64 @@ public class AgentTask
         switch (type)
         {
             case Tasks.Eat:
-                DoEat();
+                TradeResources(AgentType.Food, PropertyType.Hunger, PropertyType.Food, 10);
                 break;
             case Tasks.Sleep:
-                DoSleep();
+                TradeResources(AgentType.House, PropertyType.Energy, PropertyType.Rest, 10);
                 break;
             case Tasks.GatherPollen:
-                DoGatherPollen();
+                TradeResources(AgentType.Plant, PropertyType.Pollen, PropertyType.Pollen, 10);
                 break;
             case Tasks.StorePollen:
-                DoStorePollen();
+                TradeResources(AgentType.Plant, PropertyType.Pollen, PropertyType.Pollen, 10);
                 break;
             default:
                 break;
         }
     }
 
-    private void DoEat()
+    private void TradeResources(AgentType wantedAgentType, PropertyType giveProperty, PropertyType takeProperty, int amountToTrade, bool isGiving = false)
     {
-        
-    }
+        int?[] agentsOnTile = ReverseLookup.Instance.AgentsOnTile(attachedBase);
 
-    private void DoSleep()
-    {
+        if (agentsOnTile == null)
+        {
+            Debug.Log("There's no Task Object on this Tile with AgentID " + attachedBase.ID);
+            return;
+        }
 
-    }
+        foreach (var agent in agentsOnTile)
+        {
+            AgentBase tradingAgent = Simulation.Instance.GetAgent((int)agent);
+            if (tradingAgent.type != wantedAgentType)
+            {
+                continue;
+            }
 
-    private void DoGatherPollen()
-    {
+            AgentProperty givingProperty;
+            AgentProperty takingProperty;
 
-    }
+            if (isGiving)
+            {
+                givingProperty = attachedBase.GetPropertyofType(giveProperty);
+                takingProperty = tradingAgent.GetPropertyofType(takeProperty);
+            }
+            else
+            {
+                givingProperty = tradingAgent.GetPropertyofType(giveProperty);
+                takingProperty = attachedBase.GetPropertyofType(takeProperty);
+            }
 
-    private void DoStorePollen()
-    {
+            takingProperty.TakeWeight(givingProperty.GiveWeight(amountToTrade));
 
+            if (giveProperty == PropertyType.Pollen && isGiving)
+            {
+                GlobalResources.Instance.TotalPollen += amountToTrade;
+            }
+
+            return;
+        }
+
+        Debug.Log("Something went wrong completing the task for AgentID" + attachedBase.ID);
     }
 }

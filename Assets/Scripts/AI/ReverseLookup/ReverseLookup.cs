@@ -7,23 +7,23 @@ public class ReverseLookup : Singleton<ReverseLookup>
     // List of Lists that hold Agent Index's for Looking up Agents that share a tile
     private List<TileAgents> TileLookup = new List<TileAgents>();
 
-    public void MoveAgent(Agent agent)
+    public void MoveAgent(AgentBase agent, int previousTile)
     {
-        TileLookup[agent.GetLastTile()].DeleteAgent(agent);
+        TileLookup[previousTile].DeleteAgent(agent);
         TileLookup[agent.currentTileIndex].AddAgent(agent);
     }
 
-    public void AddAgent(Agent agent)
+    public void AddAgent(AgentBase agent)
     {
         TileLookup[agent.currentTileIndex].AddAgent(agent);
     }
 
-    public void DeleteAgent(Agent agent)
+    public void DeleteAgent(AgentBase agent)
     {
         TileLookup[agent.currentTileIndex].DeleteAgent(agent);
     }
 
-    public int?[] AgentsOnTile(Agent agent)
+    public int?[] AgentsOnTile(AgentBase agent)
     {
        return TileLookup[agent.currentTileIndex].AgentsOnTile();
     }
