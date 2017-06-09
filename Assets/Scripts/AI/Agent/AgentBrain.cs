@@ -52,8 +52,7 @@ public class AgentBrain : MonoBehaviour
             currentTask.DoTask();
             return;
         }
-
-        if(attachedController.targetReached)
+        else if(attachedController.targetReached)
         {
             FindTargetTile();
         }
