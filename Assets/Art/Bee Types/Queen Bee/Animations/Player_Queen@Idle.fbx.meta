@@ -187,7 +187,7 @@ ModelImporter:
     400176: Slave_R_UpThumb1
     400178: Slave_R_UpWrist
     400180: Slave_Root
-    7400000: Take 001
+    7400000: Idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -209,7 +209,217 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 128
+      lastFrame: 224
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Slave_Root
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Abdomen0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Abdomen0/Slave_C_Abdomen1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Abdomen0/Slave_C_Abdomen1/Slave_C_Abdomen2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_DownAnt0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_DownAnt0/Slave_L_DownAnt1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_DownAnt0/Slave_L_DownAnt1/Slave_L_DownAnt2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_DownAnt0/Slave_L_DownAnt1/Slave_L_DownAnt2/Slave_L_DownAnt3
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_Mandible
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_UpAnt0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_UpAnt0/Slave_L_UpAnt1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_UpAnt0/Slave_L_UpAnt1/Slave_L_UpAnt2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_L_UpAnt0/Slave_L_UpAnt1/Slave_L_UpAnt2/Slave_L_UpAnt3
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_DownAnt0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_DownAnt0/Slave_R_DownAnt1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_DownAnt0/Slave_R_DownAnt1/Slave_R_DownAnt2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_DownAnt0/Slave_R_DownAnt1/Slave_R_DownAnt2/Slave_R_DownAnt3
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_Mandible
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_UpAnt0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_UpAnt0/Slave_R_UpAnt1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_UpAnt0/Slave_R_UpAnt1/Slave_R_UpAnt2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_C_Neck/Slave_C_Head/Slave_R_UpAnt0/Slave_R_UpAnt1/Slave_R_UpAnt2/Slave_R_UpAnt3
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowerWing_St
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb/Slave_L_LowWrist
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb/Slave_L_LowWrist/Slave_L_LowIndex0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb/Slave_L_LowWrist/Slave_L_LowIndex0/Slave_L_LowIndex1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb/Slave_L_LowWrist/Slave_L_LowPinky0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb/Slave_L_LowWrist/Slave_L_LowPinky0/Slave_L_LowPinky1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb/Slave_L_LowWrist/Slave_L_LowThumb0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_LowShould/Slave_L_LowElb/Slave_L_LowWrist/Slave_L_LowThumb0/Slave_L_LowThumb1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_MidWing_St
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpperWing_St
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb/Slave_L_UpWrist
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb/Slave_L_UpWrist/Slave_L_UpIndex0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb/Slave_L_UpWrist/Slave_L_UpIndex0/Slave_L_UpIndex1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb/Slave_L_UpWrist/Slave_L_UpPinky0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb/Slave_L_UpWrist/Slave_L_UpPinky0/Slave_L_UpPinky1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb/Slave_L_UpWrist/Slave_L_UpThumb0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_L_UpShoulder/Slave_L_UpElb/Slave_L_UpWrist/Slave_L_UpThumb0/Slave_L_UpThumb1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowerWing_St
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb/Slave_R_LowWrist
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb/Slave_R_LowWrist/Slave_R_LowIndex0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb/Slave_R_LowWrist/Slave_R_LowIndex0/Slave_R_LowIndex1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb/Slave_R_LowWrist/Slave_R_LowPinky0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb/Slave_R_LowWrist/Slave_R_LowPinky0/Slave_R_LowPinky1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb/Slave_R_LowWrist/Slave_R_LowThumb0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_LowShould/Slave_R_LowElb/Slave_R_LowWrist/Slave_R_LowThumb0/Slave_R_LowThumb1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_MidWing_St
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpperWing_St
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb/Slave_R_UpWrist
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb/Slave_R_UpWrist/Slave_R_UpIndex0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb/Slave_R_UpWrist/Slave_R_UpIndex0/Slave_R_UpIndex1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb/Slave_R_UpWrist/Slave_R_UpPinky0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb/Slave_R_UpWrist/Slave_R_UpPinky0/Slave_R_UpPinky1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb/Slave_R_UpWrist/Slave_R_UpThumb0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_C_Thorax_Pv/Slave_C_Thorax0/Slave_C_Thorax1/Slave_C_Thorax2/Slave_C_Thorax3/Slave_R_UpShoulder/Slave_R_UpElb/Slave_R_UpWrist/Slave_R_UpThumb0/Slave_R_UpThumb1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Foreleg0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Foreleg0/Slave_L_Foreleg1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Foreleg0/Slave_L_Foreleg1/Slave_L_Foreleg2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Hindleg0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Hindleg0/Slave_L_Hindleg1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Hindleg0/Slave_L_Hindleg1/Slave_L_Hindleg2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Midleg0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Midleg0/Slave_L_Midleg1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_L_Midleg0/Slave_L_Midleg1/Slave_L_Midleg2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Foreleg0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Foreleg0/Slave_R_Foreleg1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Foreleg0/Slave_R_Foreleg1/Slave_R_Foreleg2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Hindleg0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Hindleg0/Slave_R_Hindleg1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Hindleg0/Slave_R_Hindleg1/Slave_R_Hindleg2
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Midleg0
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Midleg0/Slave_R_Midleg1
+        weight: 1
+      - path: Slave_Root/Slave_C_Pelvis/Slave_R_Midleg0/Slave_R_Midleg1/Slave_R_Midleg2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
