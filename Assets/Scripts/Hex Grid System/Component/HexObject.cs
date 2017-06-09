@@ -60,7 +60,10 @@ public class HexObject : MonoBehaviour
     {
         meshFilter = transform.FindChild("hex_tile").GetComponentInChildren<MeshFilter>();
         meshRenderer = transform.FindChild("hex_tile").GetComponentInChildren<MeshRenderer>();
+    }
 
+    private void Start()
+    {
         SetupInitFieldData();
     }
 

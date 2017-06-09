@@ -75,7 +75,7 @@ public class HexDebugManager : Singleton<HexDebugManager>
             if (Enum.GetValues(typeof(DebugType)).Length - 1 < (int)debugType)
                 debugType = 0;
 
-            layerDebugText.color = Color.black;
+            layerDebugText.color = Color.white;
             layerDebugText.text = debugType.ToString();
 
             switch (debugType)
