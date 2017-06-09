@@ -40,7 +40,7 @@ public class Rail : MonoBehaviour
     /// <param name="ratio">How far along are we to the next node based on a 0-1 scale</param>
     /// <param name="play">How we move along the rail</param>
     /// <returns>Vector3 position between current node and the next node</returns>
-    public Vector3 Position(int seg, float ratio, PlayBack play)
+    public Vector3 Position(int seg, float ratio, PlayBack play, bool isCompleted)
     {
         switch (play)
         {
@@ -48,7 +48,7 @@ public class Rail : MonoBehaviour
             case PlayBack.Linear:
                 return Linear(seg, ratio);
             case PlayBack.Catmull:
-                return Catmull(seg, ratio);
+                return Catmull(seg, ratio, isCompleted);
         }
     }
 
@@ -69,7 +69,7 @@ public class Rail : MonoBehaviour
     /// <summary>
     /// Calculates the position between the current and next node based off a Catmull Curve
     /// </summary>
-    private Vector3 Catmull(int seg, float ratio)
+    private Vector3 Catmull(int seg, float ratio, bool isCompleted)
     {
         Vector3 p1, p2, p3, p4;
 
@@ -90,10 +90,20 @@ public class Rail : MonoBehaviour
         }
         else
         {
-            p1 = nodes[seg - 1].position;
-            p2 = nodes[seg].position;
-            p3 = nodes[seg + 1].position;
-            p4 = nodes[seg + 2].position;
+            if (!isCompleted)
+            {
+                p1 = nodes[seg - 1].position;
+                p2 = nodes[seg].position;
+                p3 = nodes[seg + 1].position;
+                p4 = nodes[seg + 2].position;
+            }
+            else
+            {
+                p1 = nodes[seg].position;
+                p2 = nodes[seg].position;
+                p3 = nodes[seg].position;
+                p4 = nodes[seg].position;
+            }
         }
 
         float t2 = ratio * ratio;

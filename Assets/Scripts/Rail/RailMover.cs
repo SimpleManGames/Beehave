@@ -102,7 +102,7 @@ public class RailMover : MonoBehaviour
         else if (transition < 0)
             PlayBackwards();
 
-        transform.position = rail.Position(currentSeg, transition, play);
+        transform.position = rail.Position(currentSeg, transition, play, isCompleted);
         transform.rotation = rail.Rotation(currentSeg, transition);
     }
 
