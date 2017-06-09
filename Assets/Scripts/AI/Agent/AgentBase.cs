@@ -2,21 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AgentType { Bee, House, Storage, Plant, Food }
+[SerializeField]
+public enum AgentType { Bee, House, Storage, Plant, Food, Incubator }
 
 public class AgentBase : MonoBehaviour
 {
     //Set in the Unity Editor based on the Prefab Type
-    public AgentType type { get; private set; }
+
+    [SerializeField]
+    private AgentType Type;
+
+    public AgentType type
+    {
+        get { return Type; }
+        private set { Type = value; }
+    }
+
+
     public LayerType layerType { get; private set; }
     public int ID { get; private set; }
     public int currentTileIndex { get; private set; }
     List<AgentProperty> properties = new List<AgentProperty>();
 
+    public AgentInfo info { get; private set; }
+
     public void Start()
     {
         SetProperties();
         ID = Simulation.Instance.AddAgent(this);
+        info = new AgentInfo(type);
     }
 
     public void GrowAgentProperties()
@@ -66,6 +80,10 @@ public class AgentBase : MonoBehaviour
             case AgentType.Plant:
                 properties.Add(new AgentProperty(PropertyType.Pollen, 1000, 10, 1000));
                 layerType = LayerType.Pollen_Storge;
+                break;
+            case AgentType.Incubator:
+                properties.Clear();
+                layerType = LayerType.None;
                 break;
         }
     }
