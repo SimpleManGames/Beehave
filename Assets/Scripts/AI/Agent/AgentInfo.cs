@@ -37,22 +37,26 @@ public class AgentInfo
         {
             case AgentType.Food:
                 name = "HoneyHub";
-                description = BeeTraits.buildingDescriptions[LayerType.Honey];
+                description = "Boop";
                 break;
             case AgentType.House:
                 name = "Dwelling";
-                description = BeeTraits.buildingDescriptions[LayerType.Sleep];
+                description = "Boop";
                 break;
             case AgentType.Plant:
                 name = "Flower";
-                description = BeeTraits.buildingDescriptions[LayerType.Pollen];
+                description = "Boop";
                 break;
             case AgentType.Storage:
                 name = "PollenStorage";
-                description = BeeTraits.buildingDescriptions[LayerType.Pollen_Storge];
+                description = "Boop";
                 break;
             case AgentType.Incubator:
                 name = "Incubator";
+                description = "Boop";
+                break;
+            case AgentType.Throne:
+                name = "Throne";
                 description = "Boop";
                 break;
         }
