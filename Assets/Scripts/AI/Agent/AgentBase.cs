@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
-public enum AgentType { Bee, House, Storage, Plant, Food, Incubator }
+public enum AgentType { Bee, House, Storage, Plant, Food, Incubator, Throne }
 
 public class AgentBase : MonoBehaviour
 {
@@ -84,6 +84,10 @@ public class AgentBase : MonoBehaviour
             case AgentType.Incubator:
                 properties.Clear();
                 layerType = LayerType.None;
+                break;
+            case AgentType.Throne:
+                properties.Clear();
+                layerType = LayerType.Throne;
                 break;
         }
     }
