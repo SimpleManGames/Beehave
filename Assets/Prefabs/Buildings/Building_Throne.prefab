@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33351106391997218}
   - component: {fileID: 23848007788005174}
   - component: {fileID: 95788067960815542}
-  - component: {fileID: 114035819357126800}
   - component: {fileID: 114662830086334844}
   - component: {fileID: 65736343477311634}
+  - component: {fileID: 114468186376632598}
   m_Layer: 0
   m_Name: Building_Throne
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114035819357126800
+--- !u!114 &114468186376632598
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 6
 --- !u!114 &114662830086334844
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 23735086770392800}
   - component: {fileID: 95255194430635004}
   - component: {fileID: 65926104800872856}
-  - component: {fileID: 114296408904757806}
   - component: {fileID: 114676415946973144}
+  - component: {fileID: 114776589482408404}
   m_Layer: 0
   m_Name: Building_HoneyStorage
   m_TagString: Untagged
@@ -112,18 +112,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114296408904757806
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1639288063206102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 4
 --- !u!114 &114676415946973144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,3 +123,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17613a5d07dbe1e4088abb2a8e69f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114776589482408404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639288063206102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 6

@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33280028789910872}
   - component: {fileID: 23043684989712730}
   - component: {fileID: 95620114870459208}
-  - component: {fileID: 114058733981060198}
   - component: {fileID: 65446055951200246}
   - component: {fileID: 114088871782116560}
+  - component: {fileID: 114502491932838454}
+  - component: {fileID: 114631553552840750}
   m_Layer: 0
   m_Name: Building_Incubator
   m_TagString: Untagged
@@ -113,18 +114,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114058733981060198
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1406734489937182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 5
 --- !u!114 &114088871782116560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,3 +125,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17613a5d07dbe1e4088abb2a8e69f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114502491932838454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406734489937182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 5
+--- !u!114 &114631553552840750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406734489937182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a31620afd705e645b66ac455de70a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAgent: {fileID: 1232872549644790, guid: 6b387e792e129924489776d61ded88fc, type: 2}
+  spawnGap: 5

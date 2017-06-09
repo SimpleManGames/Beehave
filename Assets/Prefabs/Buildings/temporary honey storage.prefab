@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 23900111310824730}
   - component: {fileID: 95491642560609396}
   - component: {fileID: 114628014519394874}
-  - component: {fileID: 114159091164944466}
   - component: {fileID: 65555519273134750}
+  - component: {fileID: 114336508660772208}
   m_Layer: 0
   m_Name: temporary honey storage
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114159091164944466
+--- !u!114 &114336508660772208
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -123,10 +123,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1014681052393306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97499f1b4931fe34c8712bc004334ffd, type: 3}
+  m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerType: 6
+  Type: 6
 --- !u!114 &114628014519394874
 MonoBehaviour:
   m_ObjectHideFlags: 1

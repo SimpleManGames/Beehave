@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33070863825834244}
   - component: {fileID: 23256395531447536}
   - component: {fileID: 95393568856552540}
-  - component: {fileID: 114664059705043266}
   - component: {fileID: 114373015511522490}
   - component: {fileID: 65175572812240902}
+  - component: {fileID: 114320349461769100}
   m_Layer: 0
   m_Name: Building_Dwelling
   m_TagString: Untagged
@@ -114,18 +114,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114373015511522490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1742348978633050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17613a5d07dbe1e4088abb2a8e69f60d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114664059705043266
+--- !u!114 &114320349461769100
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -137,3 +126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 1
+--- !u!114 &114373015511522490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742348978633050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17613a5d07dbe1e4088abb2a8e69f60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

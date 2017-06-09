@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4679023459919786}
   - component: {fileID: 33267484674550992}
   - component: {fileID: 23837611915885590}
-  - component: {fileID: 114254979056384900}
   - component: {fileID: 65938343123374568}
   - component: {fileID: 114961559670124606}
+  - component: {fileID: 114805315594711384}
   m_Layer: 0
   m_Name: Building_PollenStorage
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13963675, y: 0.16306037, z: 0.13887268}
   m_Center: {x: 0, y: 0.08066608, z: 0.01}
---- !u!114 &114254979056384900
+--- !u!114 &114805315594711384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
