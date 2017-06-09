@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 114963849862889838}
   - component: {fileID: 114439056120321648}
   - component: {fileID: 114595125199889302}
+  - component: {fileID: 65783559932334618}
   m_Layer: 0
   m_Name: BeeWorker
   m_TagString: Untagged
@@ -1146,6 +1147,18 @@ Transform:
   m_Father: {fileID: 4844585566719592}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65783559932334618
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232872549644790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.099999994, z: 0.16823554}
+  m_Center: {x: 0, y: 0.06999999, z: 0.015882015}
 --- !u!95 &95718120189010702
 Animator:
   serializedVersion: 3
@@ -1174,6 +1187,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd93b1b0d8e3324aa3fdf2505e9e127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eatCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  sleepCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  gatherCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  storeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114595125199889302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1199,6 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: 0
 --- !u!137 &137955323712991434
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

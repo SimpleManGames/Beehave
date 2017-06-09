@@ -131,11 +131,15 @@ public class Interaction : Singleton<Interaction>
         //targetPos = cam.WorldToViewportPoint(targetPos);
         if (selectedObj.gameObject.name.StartsWith("Bee"))
         {
+            buildingScreen.SetActive(false);
+            PanelPopulator.Instance.PopulateBumblr(hit.collider.gameObject);
             bumblrScreen.SetActive(true);
             //bumblrScreen.GetComponent<RectTransform>().localPosition = new Vector2(targetPos.x - Screen.width / 1.5f, targetPos.y - Screen.height / 2.75f);
         }
         if (selectedObj.gameObject.name.StartsWith("Building"))
         {
+            bumblrScreen.SetActive(false);
+            PanelPopulator.Instance.PopulateBuilding(hit.collider.gameObject);
             buildingScreen.SetActive(true);
             //buildingScreen.GetComponent<RectTransform>().localPosition = new Vector2(targetPos.x - Screen.width / 1.7f, targetPos.y - Screen.height / 4.3f);
         }
