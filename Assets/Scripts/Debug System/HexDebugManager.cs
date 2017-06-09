@@ -27,13 +27,13 @@ public class HexDebugManager : Singleton<HexDebugManager>
 
     private List<Color> colorsOfMap = new List<Color>();
 
-    private void Start()
+    new private void Awake()
     {
+        base.Awake();
         InitColorBlocks();
 
         layerDebugText = GameObject.Find("Debug Layer Value Text").GetComponent<Text>();
         layerDebugText.text = "";
-        hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(false));
     }
 
     private void Update()
@@ -49,20 +49,20 @@ public class HexDebugManager : Singleton<HexDebugManager>
         {
             default:
             case DebugType.None:
-                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(false));
+                Instance.hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(false));
                 break;
             case DebugType.Index:
-                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
-                hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().Index.ToString());
+                Instance.hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
+                Instance.hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().Index.ToString());
                 break;
             case DebugType.CubeCoord:
-                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
-                hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().hex.cubeCoords.ToString());
+                Instance.hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
+                Instance.hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().hex.cubeCoords.ToString());
                 break;
             case DebugType.PotentialField:
                 layerDebugText.text += ": " + layerType.ToString();
-                hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
-                hexSystemText.ForEach(h => h.text = HeatMapInfo.Instance.Field[layerType][h.transform.GetComponentInParent<HexObject>().Index].ToString());
+                Instance.hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
+                Instance.hexSystemText.ForEach(h => h.text = HeatMapInfo.Instance.Field[layerType][h.transform.GetComponentInParent<HexObject>().Index].ToString());
                 break;
         }
     }
@@ -82,20 +82,20 @@ public class HexDebugManager : Singleton<HexDebugManager>
             {
                 default:
                 case DebugType.None:
-                    hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(false));
+                    Instance.hexSystemText.ForEach(h => h.gameObject.SetActive(false));
                     break;
                 case DebugType.Index:
-                    hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
-                    hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().Index.ToString());
+                    Instance.hexSystemText.ForEach(h => h.gameObject.SetActive(true));
+                    Instance.hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().Index.ToString());
                     break;
                 case DebugType.CubeCoord:
-                    hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
-                    hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().hex.cubeCoords.ToString());
+                    Instance.hexSystemText.ForEach(h => h.gameObject.SetActive(true));
+                    Instance.hexSystemText.ForEach(h => h.text = h.transform.GetComponentInParent<HexObject>().hex.cubeCoords.ToString());
                     break;
                 case DebugType.PotentialField:
                     layerDebugText.text += ": " + layerType.ToString();
-                    hexSystemText.ForEach(h => h.transform.parent.gameObject.SetActive(true));
-                    hexSystemText.ForEach(h => h.text = HeatMapInfo.Instance.Field[layerType][h.transform.GetComponentInParent<HexObject>().Index].ToString());
+                    Instance.hexSystemText.ForEach(h => h.gameObject.SetActive(true));
+                    Instance.hexSystemText.ForEach(h => h.text = HeatMapInfo.Instance.Field[layerType][h.transform.GetComponentInParent<HexObject>().Index].ToString());
                     break;
             }
         }
@@ -113,7 +113,7 @@ public class HexDebugManager : Singleton<HexDebugManager>
 
             layerDebugText.text += layerType.ToString();
 
-            hexSystemText.ForEach(h =>
+            Instance.hexSystemText.ForEach(h =>
             {
                 Color color = new Color();
                 if (layerType != LayerType.Terrain)

@@ -93,7 +93,6 @@ public class Interaction : Singleton<Interaction>
                 {
                     AgentBase objToPlaceInfo = objToPlace.GetComponent<AgentBase>();
 
-                    // Errors due to material not being on base obj
                     Material[] mats = objToPlace.GetComponent<Renderer>().materials;
                     for (int i = 0; i < mats.Length; i++)
                     {
@@ -133,13 +132,13 @@ public class Interaction : Singleton<Interaction>
         if (selectedObj.gameObject.name.StartsWith("Bee"))
         {
             bumblrScreen.SetActive(true);
-            bumblrScreen.GetComponent<RectTransform>().localPosition = new Vector2(targetPos.x - Screen.width / 1.5f, targetPos.y - Screen.height / 2.75f);
+            //bumblrScreen.GetComponent<RectTransform>().localPosition = new Vector2(targetPos.x - Screen.width / 1.5f, targetPos.y - Screen.height / 2.75f);
         }
-        //if (selectedObj.gameObject.name.StartsWith("Building"))
-        //{
-        //    buildingScreen.SetActive(true);
-        //    buildingScreen.GetComponent<RectTransform>().localPosition = new Vector2(targetPos.x - Screen.width / 1.7f, targetPos.y - Screen.height / 4.3f);
-        //}
+        if (selectedObj.gameObject.name.StartsWith("Building"))
+        {
+            buildingScreen.SetActive(true);
+            //buildingScreen.GetComponent<RectTransform>().localPosition = new Vector2(targetPos.x - Screen.width / 1.7f, targetPos.y - Screen.height / 4.3f);
+        }
     }
     void SelectCreepToPlace()
     {
@@ -161,7 +160,9 @@ public class Interaction : Singleton<Interaction>
         {
             selecting = false;
             mouseDown = false;
+            Destroy(objToPlace);
             objToPlace = null;
+            defaultMat.Clear();
             return;
         }
     }
