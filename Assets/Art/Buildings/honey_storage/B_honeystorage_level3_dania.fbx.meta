@@ -1,27 +1,15 @@
 fileFormatVersion: 2
-guid: 5c123425cdb46ea41851f9fa3dfb34cd
-timeCreated: 1493923053
+guid: 3e537b89739b79d4ea9a4015c911b60a
+timeCreated: 1496963707
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: bh_3d_bld_honey_storage_kyle_01
-    100002: bh_3d_bld_honey_storage_kyle_02
-    100004: bh_3d_bld_honey_storage_kyle_03
-    100006: //RootNode
-    400000: bh_3d_bld_honey_storage_kyle_01
-    400002: bh_3d_bld_honey_storage_kyle_02
-    400004: bh_3d_bld_honey_storage_kyle_03
-    400006: //RootNode
-    2300000: bh_3d_bld_honey_storage_kyle_01
-    2300002: bh_3d_bld_honey_storage_kyle_02
-    2300004: bh_3d_bld_honey_storage_kyle_03
-    3300000: bh_3d_bld_honey_storage_kyle_01
-    3300002: bh_3d_bld_honey_storage_kyle_02
-    3300004: bh_3d_bld_honey_storage_kyle_03
-    4300000: bh_3d_bld_honey_storage_kyle_03
-    4300002: bh_3d_bld_honey_storage_kyle_02
-    4300004: bh_3d_bld_honey_storage_kyle_01
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: B_honeystorage_level3_dania
     9500000: //RootNode
   materials:
     importMaterials: 1
