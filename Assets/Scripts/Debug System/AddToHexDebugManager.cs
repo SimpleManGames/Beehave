@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class AddToHexDebugManager : MonoBehaviour
 {    
-    void Awake()
+    void Start()
     {
         HexDebugManager.Instance.hexSystemText.Add(GetComponent<Text>());
     }

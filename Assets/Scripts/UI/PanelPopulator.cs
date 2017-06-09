@@ -30,12 +30,13 @@ public class PanelPopulator : Singleton<PanelPopulator>
     {
         //populate with agent stuff
         AgentBase beeAgent = bee.GetComponent<AgentBase>();
+        AgentBrain beeBrain = bee.GetComponent<AgentBrain>();
 
-        beeNameTxt.text = "Holder";
-        beeAgeTxt.text = "Holder";
-        beePhysicalTxt.text = "Holder";
-        beeTaskTxt.text = "Holder";
-        beeBumblrTxt.text = "Holder";
+        beeNameTxt.text = beeAgent.info.name;
+        beeAgeTxt.text = beeAgent.info.capacity.ToString();
+        beePhysicalTxt.text = beeAgent.info.trait;
+        beeTaskTxt.text = beeBrain.currentTask.type.ToString();
+        beeBumblrTxt.text = "BumblrText";
         //for(int i = 0; i < beeAgent.bumblrText.Count; i++)
         //{
         //    PrintToBumblr(beeAgent.bumblrText[i]);
@@ -43,6 +44,10 @@ public class PanelPopulator : Singleton<PanelPopulator>
     }
     public void PopulateBuilding(GameObject building)
     {
+        AgentBase buildingAgent = building.GetComponent<AgentBase>();
 
+        buildingNameTxt.text = buildingAgent.info.name;
+        buildingDescriptionTxt.text = buildingAgent.info.description;
+        buildingOccupancyTxt.text = buildingAgent.info.capacity.ToString();
     }
 }

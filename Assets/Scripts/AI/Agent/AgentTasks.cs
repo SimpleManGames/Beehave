@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Tasks { Null = 0, Eat = 1, Sleep = 2, GatherPollen = 3, StorePollen = 4, ProducePollen = 5, ProduceHoney = 6 }
+
 public class AgentTask
 {
     public AgentTask(Tasks _type, AgentBase _attachedBase, float _weight = 0)
