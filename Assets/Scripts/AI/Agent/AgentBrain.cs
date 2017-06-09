@@ -19,7 +19,10 @@ public class AgentBrain : MonoBehaviour
     private Queue<int> prevTileIndices = new Queue<int>();
     private int tileMemory = 5;
 
-    AnimationCurve utilityCurve = new AnimationCurve();
+    public AnimationCurve eatCurve = new AnimationCurve();
+    public AnimationCurve sleepCurve = new AnimationCurve();
+    public AnimationCurve gatherCurve = new AnimationCurve();
+    public AnimationCurve storeCurve = new AnimationCurve();
 
     private void Start()
     {
@@ -172,8 +175,6 @@ public class AgentBrain : MonoBehaviour
 
     private float ScoreGatherPollen()
     {
-
-
         return 0f;
     }
 
