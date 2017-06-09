@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33721019204973300}
   - component: {fileID: 23086460057220012}
   - component: {fileID: 95366750805388188}
-  - component: {fileID: 114656910614470804}
   - component: {fileID: 65775392304497046}
   - component: {fileID: 114707992981011502}
+  - component: {fileID: 114848489066639316}
   m_Layer: 0
   m_Name: Building_NectarStorage
   m_TagString: Untagged
@@ -113,18 +113,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114656910614470804
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481859076400106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97499f1b4931fe34c8712bc004334ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerType: 6
 --- !u!114 &114707992981011502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,3 +124,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17613a5d07dbe1e4088abb2a8e69f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114848489066639316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481859076400106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576e3e3ef6fa7a542a6ea1b57b256c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 6
