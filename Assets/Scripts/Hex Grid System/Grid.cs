@@ -442,8 +442,9 @@ public class Grid : Singleton<Grid>
 
     #region Unity Functions
 
-    public void Start()
+    new public void Awake()
     {
+        base.Awake();
         CreateGrid();
         SetStartTiles();
     }
