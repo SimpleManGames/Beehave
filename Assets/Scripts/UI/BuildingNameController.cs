@@ -22,7 +22,7 @@ public class BuildingNameController : MonoBehaviour, IPointerEnterHandler,IPoint
         namePanel.rectTransform.position = new Vector3(GetComponent<RectTransform>().position.x, GetComponent<RectTransform>().position.y+75, GetComponent<RectTransform>().position.z);
         if (GetComponent<BuildingHolder>())
         {
-            SetName(GetComponent<BuildingHolder>().Building.GetComponent<BuildingObject>().layerType);
+            SetName(GetComponent<BuildingHolder>().Building.GetComponent<AgentBase>().layerType);
         }
         else
         {

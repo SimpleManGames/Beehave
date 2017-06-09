@@ -29,13 +29,13 @@ public class PanelPopulator : Singleton<PanelPopulator>
     public void PopulateBumblr(GameObject bee)
     {
         //populate with agent stuff
-        AgentObject beeAgent = bee.GetComponent<AgentObject>();
+        AgentBase beeAgent = bee.GetComponent<AgentBase>();
 
-        beeNameTxt.text = beeAgent.info.name;
-        beeAgeTxt.text = beeAgent.info.currentCapacity.ToString();
-        beePhysicalTxt.text = beeAgent.info.physicalTrait;
-        beeTaskTxt.text = beeAgent.agent.currentTask.ToString();
-        beeBumblrTxt.text = beeAgent.info.bumblrText;
+        beeNameTxt.text = "Holder";
+        beeAgeTxt.text = "Holder";
+        beePhysicalTxt.text = "Holder";
+        beeTaskTxt.text = "Holder";
+        beeBumblrTxt.text = "Holder";
         //for(int i = 0; i < beeAgent.bumblrText.Count; i++)
         //{
         //    PrintToBumblr(beeAgent.bumblrText[i]);

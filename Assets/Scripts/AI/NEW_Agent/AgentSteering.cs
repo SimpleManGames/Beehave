@@ -18,6 +18,7 @@ public class AgentSteering : MonoBehaviour
     {
         targetTileIndex = target;
         targetPosition = Grid.FindHexObject(target).transform.position;
+        targetReached = false;
     }
 
     public void Move()

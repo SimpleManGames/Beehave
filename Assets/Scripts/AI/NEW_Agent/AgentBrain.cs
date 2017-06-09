@@ -5,7 +5,9 @@ using UnityEngine;
 public class AgentBrain : MonoBehaviour
 {
     List<AgentTask> availableTasks = new List<AgentTask>();
+
     public AgentTask currentTask { get; private set; }
+
     private bool taskReached = false;
     private bool taskComplete = false;
 
@@ -61,8 +63,8 @@ public class AgentBrain : MonoBehaviour
     {
         availableTasks.Add(new AgentTask(Tasks.Eat, attachedBase));
         availableTasks.Add(new AgentTask(Tasks.Sleep, attachedBase));
-        availableTasks.Add(new AgentTask(Tasks.GatherPollen, attachedBase));
         availableTasks.Add(new AgentTask(Tasks.StorePollen, attachedBase));
+        availableTasks.Add(new AgentTask(Tasks.GatherPollen, attachedBase));
     }
 
     // TODO: Add functionality for adding tiles to previous tile queue
@@ -133,13 +135,14 @@ public class AgentBrain : MonoBehaviour
             Task.SetWeight(EvalUtility(Task));
 
             // Innocent method of just setting the Task with highest weight to be our current Task
-            if (Task.weight > bestScore)
+            if (Task.weight >= bestScore)
             {
                 bestTask = Task;
             }
 
             currentTask = bestTask;
         }
+        Debug.Log(currentTask.type);
     }
 
     // Utility Scoring Method, uses switch to allow passing of all Tasks into one function and sorted there.
