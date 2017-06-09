@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114394238736049018}
   - component: {fileID: 114249515673376358}
   - component: {fileID: 114574531771005544}
+  - component: {fileID: 114612034141445604}
   m_Layer: 0
   m_Name: _TEST_
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MonoBehaviour:
   CreepToPlaceList: 
   mouseDown: 0
 --- !u!114 &114574531771005544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462463371448740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673c5dbec931ce1479e43c372c7d82fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnLoad: 0
+  hexSystemText: []
+--- !u!114 &114612034141445604
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
