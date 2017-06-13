@@ -62,7 +62,7 @@ public class AgentBase : MonoBehaviour
             case AgentType.Bee:
                 properties.Add(new AgentProperty(PropertyType.Hunger, 100, -3));
                 properties.Add(new AgentProperty(PropertyType.Energy, 100, -2));
-                properties.Add(new AgentProperty(PropertyType.Pollen, 100, 0));
+                properties.Add(new AgentProperty(PropertyType.Pollen, 0, 0));
                 layerType = LayerType.None;
                 break;
             case AgentType.Storage:

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95788067960815542}
   - component: {fileID: 114662830086334844}
   - component: {fileID: 65736343477311634}
-  - component: {fileID: 114468186376632598}
+  - component: {fileID: 114227494771728010}
   m_Layer: 0
   m_Name: Building_Throne
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114468186376632598
+--- !u!114 &114227494771728010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

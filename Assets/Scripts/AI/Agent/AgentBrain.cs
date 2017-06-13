@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AgentBrain : MonoBehaviour
@@ -139,11 +140,12 @@ public class AgentBrain : MonoBehaviour
             // Innocent method of just setting the Task with highest weight to be our current Task
             if (Task.weight >= bestScore)
             {
+                bestScore = Task.weight;
                 bestTask = Task;
             }
-
-            currentTask = bestTask;
         }
+        
+            currentTask = bestTask;
         Debug.Log(currentTask.type);
     }
 
@@ -156,15 +158,19 @@ public class AgentBrain : MonoBehaviour
         {
             case Tasks.Eat:
                 score = ScoreEat();
+                Debug.Log(score);
                 break;
             case Tasks.Sleep:
                 score = ScoreSleep();
+                Debug.Log(score);
                 break;
             case Tasks.GatherPollen:
                 score = ScoreGatherPollen();
+                Debug.Log(score);
                 break;
             case Tasks.StorePollen:
                 score = ScoreDepositPollen();
+                Debug.Log(score);
                 break;
             default:
                 break;
@@ -175,21 +181,21 @@ public class AgentBrain : MonoBehaviour
 
     private float ScoreGatherPollen()
     {
-        return 0f;
+        return gatherCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Pollen).weight);
     }
 
     private float ScoreDepositPollen()
     {
-        return 0f;
+        return storeCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Pollen).weight);
     }
 
     private float ScoreEat()
     {
-        return 0f;
+        return eatCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Hunger).weight);
     }
 
     private float ScoreSleep()
     {
-        return 0f;
+        return sleepCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Energy).weight);
     }
 }

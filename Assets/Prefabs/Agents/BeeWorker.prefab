@@ -1189,28 +1189,100 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eatCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.0032258064
+      value: 0.9999999
+      inSlope: 0.3811478
+      outSlope: 0.3811478
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.2320342
+      value: 0.563485
+      inSlope: -2.37922
+      outSlope: -2.37922
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.012500107
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   sleepCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.0032258064
+      value: 0.9937499
+      inSlope: 0.03522707
+      outSlope: 0.03522707
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.37623113
+      value: 0.8635708
+      inSlope: -0.66049504
+      outSlope: -0.66049504
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9935484
+      value: 0.0062500834
+      inSlope: -0.033990707
+      outSlope: -0.033990707
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   gatherCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.0018085148
+      value: 0.01342403
+      inSlope: -0.02148771
+      outSlope: -0.02148771
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9935692
+      value: 0.010797501
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   storeCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: -0.0062499996
+      inSlope: 0.03283898
+      outSlope: 0.03283898
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9994483
+      value: 0.44126326
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.99375
+      inSlope: 0.028493024
+      outSlope: 0.028493024
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114595125199889302
 MonoBehaviour:
   m_ObjectHideFlags: 1

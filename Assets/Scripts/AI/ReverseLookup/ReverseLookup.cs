@@ -29,8 +29,9 @@ public class ReverseLookup : Singleton<ReverseLookup>
        return TileLookup[agent.currentTileIndex].AgentsOnTile();
     }
 
-    public void Start()
+    override public void Awake()
     {
+        base.Awake();
         for(int i = 0; i <= Grid.Instance.Hexes.Count; i++)
         {
             TileLookup.Add(new TileAgents());
