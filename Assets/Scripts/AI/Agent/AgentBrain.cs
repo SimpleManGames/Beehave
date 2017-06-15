@@ -27,8 +27,8 @@ public class AgentBrain : MonoBehaviour
 
     private void Start()
     {
-        attachedController = this.GetComponent<AgentSteering>();
-        attachedBase = this.GetComponent<AgentBase>();
+        attachedController = GetComponent<AgentSteering>();
+        attachedBase = GetComponent<AgentBase>();
 
         currentTask = new AgentTask(Tasks.Null, attachedBase);
         PrepTaskList();
@@ -181,21 +181,21 @@ public class AgentBrain : MonoBehaviour
 
     private float ScoreGatherPollen()
     {
-        return gatherCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Pollen).weight);
+        return gatherCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Pollen));
     }
 
     private float ScoreDepositPollen()
     {
-        return storeCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Pollen).weight);
+        return storeCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Pollen));
     }
 
     private float ScoreEat()
     {
-        return eatCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Hunger).weight);
+        return eatCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Hunger));
     }
 
     private float ScoreSleep()
     {
-        return sleepCurve.Evaluate(attachedBase.GetPropertyofType(PropertyType.Energy).weight);
+        return sleepCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Energy));
     }
 }

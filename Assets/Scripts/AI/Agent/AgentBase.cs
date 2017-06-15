@@ -26,7 +26,7 @@ public class AgentBase : MonoBehaviour
 
     public AgentInfo info { get; private set; }
 
-    public void Start()
+    public void Awake()
     {
         SetProperties();
         ID = Simulation.Instance.AddAgent(this);
@@ -47,12 +47,25 @@ public class AgentBase : MonoBehaviour
         {
             if(property.type == wantedProperty)
             {
+                Debug.Log("PropertyFound" + " " + property.type);
                 return property;
             }
         }
-
-        Debug.Log("Expected AgentProperty not found");
         return null;
+    }
+
+    public float GetPropertyWeight(PropertyType wantedPropertyWeight)
+    {
+        foreach (var property in properties)
+        {
+            if (property.type == wantedPropertyWeight)
+            {
+                Debug.Log("PropertyFound" + " " + property.type);
+                Debug.Log("Property Weight" + "=" + property.weight);
+                return property.weight;
+            }
+        }
+        return 0;
     }
 
     private void SetProperties()
@@ -60,9 +73,9 @@ public class AgentBase : MonoBehaviour
         switch(type)
         {
             case AgentType.Bee:
-                properties.Add(new AgentProperty(PropertyType.Hunger, 100, -3));
-                properties.Add(new AgentProperty(PropertyType.Energy, 100, -2));
-                properties.Add(new AgentProperty(PropertyType.Pollen, 0, 0));
+                properties.Add(new AgentProperty(PropertyType.Hunger, 100, 0, 100));
+                properties.Add(new AgentProperty(PropertyType.Energy, 100, 0, 100));
+                properties.Add(new AgentProperty(PropertyType.Pollen, 100, 0));
                 layerType = LayerType.None;
                 break;
             case AgentType.Storage:
