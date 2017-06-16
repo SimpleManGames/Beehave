@@ -26,7 +26,7 @@ public class AgentBase : MonoBehaviour
 
     public AgentInfo info { get; private set; }
 
-    public void Awake()
+    public void Start()
     {
         SetProperties();
         ID = Simulation.Instance.AddAgent(this);
@@ -75,7 +75,7 @@ public class AgentBase : MonoBehaviour
             case AgentType.Bee:
                 properties.Add(new AgentProperty(PropertyType.Hunger, 100, 0, 100));
                 properties.Add(new AgentProperty(PropertyType.Energy, 100, 0, 100));
-                properties.Add(new AgentProperty(PropertyType.Pollen, 100, 0));
+                properties.Add(new AgentProperty(PropertyType.Pollen, 100, 0, 0));
                 layerType = LayerType.None;
                 break;
             case AgentType.Storage:
