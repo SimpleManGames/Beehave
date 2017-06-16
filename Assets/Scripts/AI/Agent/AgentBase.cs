@@ -43,7 +43,7 @@ public class AgentBase : MonoBehaviour
 
     public AgentProperty GetPropertyofType(PropertyType wantedProperty)
     {
-        foreach(var property in properties)
+        foreach(AgentProperty property in properties)
         {
             if(property.type == wantedProperty)
             {
@@ -56,7 +56,7 @@ public class AgentBase : MonoBehaviour
 
     public float GetPropertyWeight(PropertyType wantedPropertyWeight)
     {
-        foreach (var property in properties)
+        foreach (AgentProperty property in properties)
         {
             if (property.type == wantedPropertyWeight)
             {
@@ -65,6 +65,8 @@ public class AgentBase : MonoBehaviour
                 return property.weight;
             }
         }
+
+        Debug.Log("Could not find Property Weight for " + wantedPropertyWeight);
         return 0;
     }
 
@@ -73,6 +75,7 @@ public class AgentBase : MonoBehaviour
         switch(type)
         {
             case AgentType.Bee:
+                Debug.Log("Adding Properties to Bee");
                 properties.Add(new AgentProperty(PropertyType.Hunger, 100, 0, 100));
                 properties.Add(new AgentProperty(PropertyType.Energy, 100, 0, 100));
                 properties.Add(new AgentProperty(PropertyType.Pollen, 100, 0, 0));
@@ -103,6 +106,8 @@ public class AgentBase : MonoBehaviour
                 layerType = LayerType.Throne;
                 break;
         }
+
+        Debug.Log("Properties are Set");
     }
 
     public void SetCurrentTile(int tileIndex)

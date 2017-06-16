@@ -179,16 +179,6 @@ public class AgentBrain : MonoBehaviour
         return score;
     }
 
-    private float ScoreGatherPollen()
-    {
-        return gatherCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Pollen));
-    }
-
-    private float ScoreDepositPollen()
-    {
-        return storeCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Pollen));
-    }
-
     private float ScoreEat()
     {
         return eatCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Hunger));
@@ -197,5 +187,15 @@ public class AgentBrain : MonoBehaviour
     private float ScoreSleep()
     {
         return sleepCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Energy));
+    }
+
+    private float ScoreGatherPollen()
+    {
+        return gatherCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Pollen));
+    }
+
+    private float ScoreDepositPollen()
+    {
+        return storeCurve.Evaluate(attachedBase.GetPropertyWeight(PropertyType.Pollen));
     }
 }
