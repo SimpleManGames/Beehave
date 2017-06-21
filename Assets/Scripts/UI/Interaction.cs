@@ -91,7 +91,7 @@ public class Interaction : Singleton<Interaction>
                 var hex = Grid.FindHexObject(hexIndex);
                 if (hex.IsCreep && !hex.HasBuilding)
                 {
-                    AgentBase objToPlaceInfo = objToPlace.GetComponent<AgentBase>();
+                    AgentBase objectBase = objToPlace.GetComponent<AgentBase>();
 
                     Material[] mats = objToPlace.GetComponent<Renderer>().materials;
                     for (int i = 0; i < mats.Length; i++)
@@ -100,11 +100,12 @@ public class Interaction : Singleton<Interaction>
                     }
                     objToPlace.GetComponent<Renderer>().materials = mats;
                     //objToPlace.GetComponent<Renderer>().materials = defaultMat
-                    objToPlaceInfo.SetCurrentTile(hexIndex);
+                    objectBase.SetCurrentTile(hexIndex);
+                    objectBase.SetActiveState(true);
 
                     HeatMapInfo.Instance.AddPointToLayer(hex, new HeatMapInfo.LayerSettings
                     {
-                        type = objToPlaceInfo.layerType,
+                        type = objectBase.layerType,
                         settings = HeatMapInfo.DisperseSetting.Linear
                     });
                     objToPlace = null;

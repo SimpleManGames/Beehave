@@ -11,21 +11,28 @@ public class AgentSpawner : MonoBehaviour
     private AgentBase spawnerBase;
     private float spawnTimer = 0;
 
-    private void Start()
+    private void Awake()
     {
         spawnerBase = this.GetComponent<AgentBase>(); 
     }
 
     private void Update()
     {
+        if(!spawnerBase.isActive)
+        {
+            return;
+        }
+
         spawnTimer += Time.fixedDeltaTime;
         
         if(spawnTimer >= spawnGap)
         {
-            GameObject spawnedAgentHolder = Instantiate(spawnAgent);
+            GameObject spawnedAgentHolder = Instantiate(spawnAgent, this.transform.position, this.transform.rotation);
 
             spawnAgentBase = spawnedAgentHolder.GetComponent<AgentBase>();
             spawnAgentBase.SetCurrentTile(spawnerBase.currentTileIndex);
+
+            spawnTimer = 0;
         }
     }
 }

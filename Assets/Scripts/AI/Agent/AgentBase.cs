@@ -18,6 +18,7 @@ public class AgentBase : MonoBehaviour
         private set { Type = value; }
     }
 
+    public bool isActive { get; private set; }
 
     public LayerType layerType { get; private set; }
     public int ID { get; private set; }
@@ -35,6 +36,11 @@ public class AgentBase : MonoBehaviour
 
     public void GrowAgentProperties()
     {
+        if(!isActive)
+        {
+            return;
+        }
+
         foreach(var property in properties)
         {
             property.GrowWeight();
@@ -43,6 +49,12 @@ public class AgentBase : MonoBehaviour
 
     public AgentProperty GetPropertyofType(PropertyType wantedProperty)
     {
+        if(!isActive)
+        {
+            Debug.Log("Agent is Not Active");
+            return null;
+        }
+
         foreach(AgentProperty property in properties)
         {
             if(property.type == wantedProperty)
@@ -56,6 +68,12 @@ public class AgentBase : MonoBehaviour
 
     public float GetPropertyWeight(PropertyType wantedPropertyWeight)
     {
+        if (!isActive)
+        {
+            Debug.Log("Agent is Not Active");
+            return -1;
+        }
+
         foreach (AgentProperty property in properties)
         {
             if (property.type == wantedPropertyWeight)
@@ -79,31 +97,38 @@ public class AgentBase : MonoBehaviour
                 properties.Add(new AgentProperty(PropertyType.Hunger, 100, 0, 100));
                 properties.Add(new AgentProperty(PropertyType.Energy, 100, 0, 100));
                 properties.Add(new AgentProperty(PropertyType.Pollen, 100, 0, 0));
+                isActive = true;
                 layerType = LayerType.None;
                 break;
             case AgentType.Storage:
                 properties.Add(new AgentProperty(PropertyType.Pollen, 10000));
                 layerType = LayerType.Pollen_Storge;
+                isActive = false;
                 break;
             case AgentType.House:
                 properties.Add(new AgentProperty(PropertyType.Rest, 1000, 10, 1000));
                 layerType = LayerType.Pollen_Storge;
+                isActive = false;
                 break;
             case AgentType.Food:
                 properties.Add(new AgentProperty(PropertyType.Food, 1000, 4, 100));
                 layerType = LayerType.Pollen_Storge;
+                isActive = false;
                 break;
             case AgentType.Plant:
                 properties.Add(new AgentProperty(PropertyType.Pollen, 1000, 10, 1000));
                 layerType = LayerType.Pollen_Storge;
+                isActive = true;
                 break;
             case AgentType.Incubator:
                 properties.Clear();
                 layerType = LayerType.None;
+                isActive = false;
                 break;
             case AgentType.Throne:
                 properties.Clear();
                 layerType = LayerType.Throne;
+                isActive = true;
                 break;
         }
 
@@ -113,5 +138,10 @@ public class AgentBase : MonoBehaviour
     public void SetCurrentTile(int tileIndex)
     {
         currentTileIndex = tileIndex;
+    }
+
+    public void SetActiveState(bool _isActive)
+    {
+        isActive = _isActive;
     }
 }
