@@ -32,6 +32,8 @@ public class AgentSpawner : MonoBehaviour
             spawnAgentBase = spawnedAgentHolder.GetComponent<AgentBase>();
             spawnAgentBase.SetCurrentTile(spawnerBase.currentTileIndex);
 
+            GlobalResources.Instance.TotalPopulation += 1;
+
             spawnTimer = 0;
         }
     }

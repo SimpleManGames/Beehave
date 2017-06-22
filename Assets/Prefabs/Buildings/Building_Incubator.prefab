@@ -150,4 +150,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnAgent: {fileID: 1232872549644790, guid: 6b387e792e129924489776d61ded88fc, type: 2}
-  spawnGap: 3
+  spawnGap: 20

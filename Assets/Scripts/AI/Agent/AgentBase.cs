@@ -32,10 +32,6 @@ public class AgentBase : MonoBehaviour
         SetProperties();
         ID = Simulation.Instance.AddAgent(this);
         ReverseLookup.Instance.AddAgent(this);
-        if (type == AgentType.Plant)
-        {
-            Debug.Log("adding Plant to the Reverse Lookup");
-        }
         info = new AgentInfo(type);
     }
 
@@ -112,17 +108,17 @@ public class AgentBase : MonoBehaviour
                 break;
             case AgentType.House:
                 properties.Add(new AgentProperty(PropertyType.Rest, 1000, 10, 1000));
-                layerType = LayerType.Pollen_Storge;
+                layerType = LayerType.Sleep;
                 isActive = false;
                 break;
             case AgentType.Food:
                 properties.Add(new AgentProperty(PropertyType.Food, 1000, 4, 100));
-                layerType = LayerType.Pollen_Storge;
+                layerType = LayerType.Honey;
                 isActive = false;
                 break;
             case AgentType.Plant:
                 properties.Add(new AgentProperty(PropertyType.Pollen, 1000, 10, 1000));
-                layerType = LayerType.Pollen_Storge;
+                layerType = LayerType.Pollen;
                 isActive = true;
                 break;
             case AgentType.Incubator:

@@ -11,6 +11,7 @@ public class AgentBrain : MonoBehaviour
 
     private bool taskReached = false;
     private bool taskComplete = false;
+    private int taskCycle = 0;
 
     public int targetTileIndex { get; private set; }
 
@@ -55,6 +56,12 @@ public class AgentBrain : MonoBehaviour
 
         if(taskReached)
         {
+            ++taskCycle;
+            if(taskCycle >= 20)
+            {
+                taskComplete = true;
+                taskCycle = 0;
+            }
             currentTask.DoTask();
             return;
         }
@@ -99,7 +106,7 @@ public class AgentBrain : MonoBehaviour
                 if (currentWeight >= 1f)
                 {
                     AddPrevTile(attachedController.targetTileIndex);
-                    attachedBase.SetCurrentTile(attachedController.targetTileIndex);
+                    attachedBase.SetCurrentTile(currentTile.Index);
                     attachedController.SetTargetTile(currentTile.Index);
                     taskReached = true;
                     return;
@@ -147,7 +154,9 @@ public class AgentBrain : MonoBehaviour
             }
         }
         
-            currentTask = bestTask;
+        currentTask = bestTask;
+        taskComplete = false;
+        taskReached = false;
         Debug.Log(currentTask.type);
     }
 

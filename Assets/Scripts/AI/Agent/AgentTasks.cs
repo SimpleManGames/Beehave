@@ -53,7 +53,7 @@ public class AgentTask
                 TradeResources(AgentType.Plant, PropertyType.Pollen, PropertyType.Pollen, 10);
                 break;
             case Tasks.StorePollen:
-                TradeResources(AgentType.Plant, PropertyType.Pollen, PropertyType.Pollen, 10);
+                TradeResources(AgentType.Storage, PropertyType.Pollen, PropertyType.Pollen, 10, true);
                 break;
             default:
                 break;
@@ -103,6 +103,7 @@ public class AgentTask
             if (giveProperty == PropertyType.Pollen && isGiving)
             {
                 GlobalResources.Instance.TotalPollen += amountToTrade;
+                Debug.Log("Global Resources Updated");
             }
 
             return;
