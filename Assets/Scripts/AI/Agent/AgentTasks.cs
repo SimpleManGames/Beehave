@@ -72,7 +72,13 @@ public class AgentTask
 
         foreach (var agent in agentsOnTile)
         {
+            if(agent == null)
+            {
+                continue;
+            }
+
             AgentBase tradingAgent = Simulation.Instance.GetAgent((int)agent);
+
             if (tradingAgent.type != wantedAgentType)
             {
                 continue;

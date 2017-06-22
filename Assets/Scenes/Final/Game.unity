@@ -5641,6 +5641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
   plantEmpty: {fileID: 1085789442912288, guid: d2e4e29acd50d18469485fc0df4fc37f, type: 2}
+  plantHolder: {fileID: 990101093}
 --- !u!114 &339723677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10869,6 +10870,34 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 984958531}
+--- !u!1 &990101093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 990101094}
+  m_Layer: 0
+  m_Name: PlantHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &990101094
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 990101093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.9832497, y: -0.45025253, z: 1.2554388}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &998416413
 GameObject:
   m_ObjectHideFlags: 0

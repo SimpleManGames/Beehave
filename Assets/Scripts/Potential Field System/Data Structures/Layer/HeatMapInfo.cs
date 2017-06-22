@@ -27,6 +27,7 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
     }
 
     public GameObject plantEmpty;
+    public GameObject plantHolder;
 
     /// <summary>
     /// A Dictionary that holds all the LayerTypes and their float array
@@ -89,7 +90,7 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
 
         if(type == LayerType.Pollen && Instance.Field[type][hexObject.Index] == 1)
         {
-            GameObject newPlant = Instantiate(plantEmpty, hexObject.transform.position, hexObject.transform.rotation);
+            GameObject newPlant = Instantiate(plantEmpty, hexObject.transform.position, hexObject.transform.rotation, plantHolder.transform);
             AgentBase plantBase = newPlant.GetComponent<AgentBase>();
             plantBase.SetCurrentTile(hexObject.Index);
         }

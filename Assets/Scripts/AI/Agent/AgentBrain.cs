@@ -30,6 +30,8 @@ public class AgentBrain : MonoBehaviour
         attachedController = GetComponent<AgentSteering>();
         attachedBase = GetComponent<AgentBase>();
 
+        attachedController.SetTargetTile(attachedBase.currentTileIndex);
+
         currentTask = new AgentTask(Tasks.Null, attachedBase);
         PrepTaskList();
 

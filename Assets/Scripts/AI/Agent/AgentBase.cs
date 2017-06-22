@@ -22,7 +22,7 @@ public class AgentBase : MonoBehaviour
 
     public LayerType layerType { get; private set; }
     public int ID { get; private set; }
-    public int currentTileIndex { get; private set; }
+    public int currentTileIndex; /*{ get; private set; }*/
     List<AgentProperty> properties = new List<AgentProperty>();
 
     public AgentInfo info { get; private set; }
@@ -31,6 +31,11 @@ public class AgentBase : MonoBehaviour
     {
         SetProperties();
         ID = Simulation.Instance.AddAgent(this);
+        ReverseLookup.Instance.AddAgent(this);
+        if (type == AgentType.Plant)
+        {
+            Debug.Log("adding Plant to the Reverse Lookup");
+        }
         info = new AgentInfo(type);
     }
 

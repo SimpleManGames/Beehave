@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 5
+  currentTileIndex: 0
 --- !u!114 &114631553552840750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,4 +150,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnAgent: {fileID: 1232872549644790, guid: 6b387e792e129924489776d61ded88fc, type: 2}
-  spawnGap: 5
+  spawnGap: 3
