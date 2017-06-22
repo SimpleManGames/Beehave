@@ -26,6 +26,8 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
         public DisperseSetting settings;
     }
 
+    public GameObject plantEmpty;
+
     /// <summary>
     /// A Dictionary that holds all the LayerTypes and their float array
     /// </summary>
@@ -84,6 +86,13 @@ public class HeatMapInfo : Singleton<HeatMapInfo>
 
         // Set the starting hex to the max value
         Instance.Field[type][hexObject.Index] = 1;
+
+        if(type == LayerType.Pollen && Instance.Field[type][hexObject.Index] == 1)
+        {
+            GameObject newPlant = Instantiate(plantEmpty, hexObject.transform.position, hexObject.transform.rotation);
+            AgentBase plantBase = newPlant.GetComponent<AgentBase>();
+            plantBase.SetCurrentTile(hexObject.Index);
+        }
 
         // Track the largest distance
         float maxDistance = float.MinValue;

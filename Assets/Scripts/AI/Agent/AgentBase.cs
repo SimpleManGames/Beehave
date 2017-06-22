@@ -138,6 +138,7 @@ public class AgentBase : MonoBehaviour
     public void SetCurrentTile(int tileIndex)
     {
         currentTileIndex = tileIndex;
+        ReverseLookup.Instance.AddAgent(this);
     }
 
     public void SetActiveState(bool _isActive)

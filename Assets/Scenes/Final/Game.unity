@@ -5590,7 +5590,6 @@ GameObject:
   - component: {fileID: 339723676}
   - component: {fileID: 1725166359}
   - component: {fileID: 339723675}
-  - component: {fileID: 339723674}
   - component: {fileID: 339723673}
   m_Layer: 0
   m_Name: _SCRIPTS_
@@ -5615,18 +5614,6 @@ MonoBehaviour:
   pollenText: {fileID: 1871449063}
   honeyText: {fileID: 1947621895}
   populationText: {fileID: 1983140492}
---- !u!114 &339723674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114379297313533930, guid: d291aa45a9d764943a1f77f8314efc99,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 339723672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &339723675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,6 +5640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
+  plantEmpty: {fileID: 1085789442912288, guid: d2e4e29acd50d18469485fc0df4fc37f, type: 2}
 --- !u!114 &339723677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16132,6 +16120,7 @@ MonoBehaviour:
   - {fileID: 533757999}
   - {fileID: 1679702033}
   - {fileID: 142409974}
+  - {fileID: 622784187}
 --- !u!4 &1537824481
 Transform:
   m_ObjectHideFlags: 0
@@ -16146,6 +16135,7 @@ Transform:
   - {fileID: 533757999}
   - {fileID: 1679702033}
   - {fileID: 142409974}
+  - {fileID: 622784187}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
